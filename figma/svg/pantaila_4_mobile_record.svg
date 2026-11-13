@@ -1,81 +1,176 @@
 <svg width="390" height="844" viewBox="0 0 390 844" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <style>
-      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 18px; font-weight: bold; fill: #F0F3F6; }
-      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
-      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 14px; font-weight: bold; fill: #FFFFFF; }
-    </style>
+    <!-- Material 3 Dark Color Tokens (Purple M3 Theme) -->
+    <!-- Primary: #D0BCFF, OnPrimary: #381E72, PrimaryContainer: #4F378B -->
+    <!-- Surface: #141218, SurfaceContainer: #211F26, SurfaceContainerHigh: #2B2930 -->
+    <linearGradient id="m3BgGradRecord" x1="0" y1="0" x2="390" y2="844" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#141218"/>
+      <stop offset="100%" stop-color="#1D1A22"/>
+    </linearGradient>
+
+    <linearGradient id="m3CardGradRecord" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#2B2930"/>
+      <stop offset="100%" stop-color="#211F26"/>
+    </linearGradient>
+
+    <linearGradient id="m3FabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8DEF8"/>
+      <stop offset="100%" stop-color="#D0BCFF"/>
+    </linearGradient>
+
+    <filter id="m3Elevation2" x="-10" y="-5" width="370" height="360" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
   </defs>
 
-  <!-- Mobile Screen Base -->
-  <rect id="bgMobileBase" width="390" height="844" rx="40" fill="#181A1F" stroke="#2E333D" stroke-width="4"/>
+  <!-- Phone Shell Base (Material 3 Dark) -->
+  <rect id="bgMobileBase" width="390" height="844" rx="44" fill="url(#m3BgGradRecord)" stroke="#36343B" stroke-width="3"/>
 
-  <!-- Phone Notch / Dynamic Island -->
-  <rect id="mobileNotch" x="135" y="14" width="120" height="28" rx="14" fill="#000000"/>
-
-  <!-- Mobile Top Bar -->
-  <g id="mobileTopBar" transform="translate(24, 60)">
-    <text x="0" y="22" class="font-title">LectureSync Mobile</text>
-    <text x="0" y="40" class="font-sub">Kotlin Multiplatform Client (Android)</text>
-  </g>
-
-  <!-- Central Recording Card -->
-  <g id="cardMobileRecorder" transform="translate(24, 130)">
-    <rect width="342" height="320" rx="20" fill="#21252B" stroke="#2E333D"/>
+  <!-- Status Bar (Android 14 / Pixel) -->
+  <g id="m3StatusBar" transform="translate(24, 14)">
+    <text x="6" y="16" font-family="'Roboto', sans-serif" font-size="14" font-weight="600" fill="#E6E0E9">10:14</text>
     
-    <text x="80" y="44" font-family="sans-serif" font-size="11" font-weight="bold" fill="#E06C75">● LIVE CLASSROOM STREAM</text>
+    <!-- Camera Punch Hole -->
+    <circle cx="171" cy="12" r="10" fill="#000000"/>
 
-    <!-- Large Recording Timer -->
-    <text x="68" y="130" font-family="sans-serif" font-size="48" font-weight="bold" fill="#F0F3F6">00:34:12</text>
-    
-    <!-- Waveform in Mobile -->
-    <g id="mobileWaveform" transform="translate(50, 160)">
-      <rect x="0" y="10" width="6" height="28" rx="2" fill="#7F52FF"/>
-      <rect x="12" y="2" width="6" height="44" rx="2" fill="#7F52FF"/>
-      <rect x="24" y="16" width="6" height="20" rx="2" fill="#7F52FF"/>
-      <rect x="36" y="0" width="6" height="50" rx="2" fill="#7F52FF"/>
-      <rect x="48" y="14" width="6" height="24" rx="2" fill="#7F52FF"/>
-      <rect x="60" y="4" width="6" height="40" rx="2" fill="#7F52FF"/>
-      <rect x="72" y="18" width="6" height="16" rx="2" fill="#7F52FF"/>
-      <rect x="84" y="6" width="6" height="36" rx="2" fill="#7F52FF"/>
-      <rect x="96" y="12" width="6" height="24" rx="2" fill="#7F52FF"/>
-      <rect x="108" y="0" width="6" height="48" rx="2" fill="#7F52FF"/>
-      <rect x="120" y="14" width="6" height="20" rx="2" fill="#7F52FF"/>
-      <rect x="132" y="4" width="6" height="40" rx="2" fill="#7F52FF"/>
-      <rect x="144" y="16" width="6" height="16" rx="2" fill="#7F52FF"/>
-      <rect x="156" y="2" width="6" height="46" rx="2" fill="#7F52FF"/>
-      <rect x="168" y="10" width="6" height="28" rx="2" fill="#7F52FF"/>
-      <rect x="180" y="20" width="6" height="12" rx="2" fill="#7F52FF"/>
-      <rect x="192" y="4" width="6" height="42" rx="2" fill="#7F52FF"/>
-      <rect x="204" y="14" width="6" height="22" rx="2" fill="#7F52FF"/>
-      <rect x="216" y="8" width="6" height="34" rx="2" fill="#7F52FF"/>
-      <rect x="228" y="18" width="6" height="14" rx="2" fill="#7F52FF"/>
-    </g>
-
-    <!-- Target Sync Info -->
-    <rect x="30" y="250" width="282" height="40" rx="8" fill="#181A1F" stroke="#2E333D"/>
-    <circle cx="48" cy="270" r="4" fill="#28A745"/>
-    <text x="60" y="274" font-family="sans-serif" font-size="11" fill="#9DA5B4">Syncing to Desktop JavaFX (Ktor WS)</text>
-  </g>
-
-  <!-- Whiteboard Photo Capture Card -->
-  <g id="cardWhiteboardCapture" transform="translate(24, 480)">
-    <rect width="342" height="130" rx="16" fill="#21252B" stroke="#2E333D"/>
-    <text x="20" y="32" font-family="sans-serif" font-size="14" font-weight="bold" fill="#F0F3F6">Whiteboard OCR &amp; Photos</text>
-    <text x="20" y="52" class="font-sub">Snap diagrams; Gemini extracts math &amp; code</text>
-    
-    <g id="btnSnapWhiteboard" transform="translate(20, 72)">
-      <rect width="302" height="42" rx="8" fill="#30353E" stroke="#3E4451"/>
-      <text x="80" y="26" class="font-btn">📷 Take Whiteboard Photo</text>
+    <!-- Status Icons -->
+    <g transform="translate(300, 4)">
+      <!-- 5G / WiFi / Battery -->
+      <path d="M0 12L12 0V12H0Z" fill="#E6E0E9"/>
+      <rect x="22" y="2" width="16" height="9" rx="2" stroke="#E6E0E9" stroke-width="1.2"/>
+      <rect x="24" y="4" width="11" height="5" rx="1" fill="#D0BCFF"/>
+      <rect x="39" y="5" width="2" height="3" rx="0.5" fill="#E6E0E9"/>
     </g>
   </g>
 
-  <!-- Stop and Send Button -->
-  <g id="btnStopAndSend" transform="translate(24, 630)">
-    <rect width="342" height="54" rx="14" fill="#E06C75"/>
-    <text x="95" y="33" font-family="sans-serif" font-size="15" font-weight="bold" fill="#FFF">Stop &amp; Send to AI</text>
+  <!-- Material 3 Top App Bar (Center-aligned) -->
+  <g id="m3TopAppBar" transform="translate(16, 52)">
+    <!-- Navigation icon (Drawer / Back) -->
+    <circle cx="20" cy="24" r="18" fill="rgba(255, 255, 255, 0.05)"/>
+    <path d="M14 18H26M14 24H26M14 30H26" stroke="#E6E0E9" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Title and Subtitle -->
+    <text x="52" y="22" font-family="'Roboto', sans-serif" font-size="18" font-weight="700" fill="#E6E0E9">LectureSync AI</text>
+    <text x="52" y="38" font-family="'Roboto', sans-serif" font-size="12" font-weight="500" fill="#CAC4D0">Android Compose Client</text>
+
+    <!-- Right Action (Cast / Sync) -->
+    <g transform="translate(310, 8)">
+      <circle cx="16" cy="16" r="16" fill="#381E72"/>
+      <circle cx="16" cy="16" r="4" fill="#36D399"/>
+    </g>
   </g>
 
-  <!-- Bottom Phone Home Indicator -->
-  <rect x="125" y="826" width="140" height="4" rx="2" fill="#FFFFFF"/>
+  <!-- M3 Central Card: Live Recording Studio -->
+  <g id="cardMobileRecorder" transform="translate(20, 116)" filter="url(#m3Elevation2)">
+    <rect width="350" height="330" rx="28" fill="url(#m3CardGradRecord)" stroke="#49454F" stroke-width="1"/>
+
+    <!-- Streaming Pill Badge -->
+    <g transform="translate(85, 20)">
+      <rect width="180" height="28" rx="14" fill="#601410" stroke="#8C1D18" stroke-width="1"/>
+      <circle cx="16" cy="14" r="5" fill="#F2B8B5"/>
+      <text x="28" y="18" font-family="'Roboto', sans-serif" font-size="11" font-weight="700" letter-spacing="0.6" fill="#F9DEDC">LIVE AUDIO STREAM</text>
+    </g>
+
+    <!-- Big Recording Timer (Material Headline Large) -->
+    <text x="68" y="108" font-family="'Roboto', sans-serif" font-size="46" font-weight="700" letter-spacing="-1" fill="#E6E0E9">00:34:12</text>
+    <text x="135" y="130" font-family="'Roboto', sans-serif" font-size="12" font-weight="500" fill="#938F99">48 kHz · Opus 64kbps</text>
+
+    <!-- Material 3 Dynamic Waveform Visualization -->
+    <g id="mobileWaveform" transform="translate(35, 150)">
+      <!-- Waveform bars in M3 Primary Purple with varying heights -->
+      <rect x="0" y="24" width="5" height="22" rx="2.5" fill="#D0BCFF"/>
+      <rect x="10" y="16" width="5" height="38" rx="2.5" fill="#D0BCFF"/>
+      <rect x="20" y="8" width="5" height="54" rx="2.5" fill="#D0BCFF"/>
+      <rect x="30" y="28" width="5" height="14" rx="2.5" fill="#D0BCFF"/>
+      <rect x="40" y="4" width="5" height="62" rx="2.5" fill="#E8DEF8"/>
+      <rect x="50" y="18" width="5" height="34" rx="2.5" fill="#D0BCFF"/>
+      <rect x="60" y="12" width="5" height="46" rx="2.5" fill="#D0BCFF"/>
+      <rect x="70" y="2" width="5" height="66" rx="2.5" fill="#FFFFFF"/>
+      <rect x="80" y="14" width="5" height="42" rx="2.5" fill="#E8DEF8"/>
+      <rect x="90" y="22" width="5" height="26" rx="2.5" fill="#D0BCFF"/>
+      <rect x="100" y="6" width="5" height="58" rx="2.5" fill="#D0BCFF"/>
+      <rect x="110" y="16" width="5" height="38" rx="2.5" fill="#D0BCFF"/>
+      <rect x="120" y="26" width="5" height="18" rx="2.5" fill="#D0BCFF"/>
+      <rect x="130" y="10" width="5" height="50" rx="2.5" fill="#D0BCFF"/>
+      <rect x="140" y="4" width="5" height="62" rx="2.5" fill="#FFFFFF"/>
+      <rect x="150" y="18" width="5" height="34" rx="2.5" fill="#E8DEF8"/>
+      <rect x="160" y="28" width="5" height="14" rx="2.5" fill="#D0BCFF"/>
+      <rect x="170" y="8" width="5" height="54" rx="2.5" fill="#D0BCFF"/>
+      <rect x="180" y="16" width="5" height="38" rx="2.5" fill="#D0BCFF"/>
+      <rect x="190" y="24" width="5" height="22" rx="2.5" fill="#D0BCFF"/>
+      <rect x="200" y="6" width="5" height="58" rx="2.5" fill="#E8DEF8"/>
+      <rect x="210" y="14" width="5" height="42" rx="2.5" fill="#D0BCFF"/>
+      <rect x="220" y="22" width="5" height="26" rx="2.5" fill="#D0BCFF"/>
+      <rect x="230" y="12" width="5" height="46" rx="2.5" fill="#D0BCFF"/>
+      <rect x="240" y="28" width="5" height="14" rx="2.5" fill="#D0BCFF"/>
+      <rect x="250" y="18" width="5" height="34" rx="2.5" fill="#D0BCFF"/>
+      <rect x="260" y="8" width="5" height="54" rx="2.5" fill="#D0BCFF"/>
+      <rect x="270" y="24" width="5" height="22" rx="2.5" fill="#D0BCFF"/>
+    </g>
+
+    <!-- Synchronized Ktor WebSocket Pill -->
+    <g transform="translate(24, 260)">
+      <rect width="302" height="44" rx="12" fill="#141218" stroke="#36343B"/>
+      <circle cx="22" cy="22" r="5" fill="#36D399"/>
+      <text x="36" y="22" font-family="'Roboto', sans-serif" font-size="12" font-weight="600" fill="#E6E0E9">WebSocket Link to Desktop JavaFX</text>
+      <text x="36" y="34" font-family="'Roboto', sans-serif" font-size="10" fill="#CAC4D0">192.168.1.45:8080 · 12ms latency</text>
+    </g>
+  </g>
+
+  <!-- Secondary Card: Whiteboard Vision AI Snap -->
+  <g id="cardWhiteboardCapture" transform="translate(20, 464)">
+    <rect width="350" height="124" rx="24" fill="#211F26" stroke="#49454F" stroke-width="1"/>
+    
+    <g transform="translate(20, 20)">
+      <circle cx="18" cy="18" r="18" fill="#4F378B"/>
+      <path d="M12 22L16 16L20 20L24 14L28 22H12Z" fill="#E8DEF8"/>
+      
+      <text x="46" y="16" font-family="'Roboto', sans-serif" font-size="15" font-weight="700" fill="#E6E0E9">Whiteboard Vision OCR</text>
+      <text x="46" y="32" font-family="'Roboto', sans-serif" font-size="11" fill="#CAC4D0">Gemini converts formulas to LaTeX &amp; code</text>
+    </g>
+
+    <!-- M3 Tonal Button -->
+    <g id="btnSnapWhiteboard" transform="translate(20, 68)">
+      <rect width="310" height="40" rx="20" fill="#36343B"/>
+      <path d="M100 20C100 17.8 101.8 16 104 16H116C118.2 16 120 17.8 120 20V24H100V20Z" fill="#D0BCFF"/>
+      <circle cx="110" cy="22" r="3" fill="#381E72"/>
+      <text x="124" y="25" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="#E6E0E9">Take Board Photo</text>
+    </g>
+  </g>
+
+  <!-- Primary Action: End Session & Send to AI (M3 Filled Tonal Red/Primary Button) -->
+  <g id="btnStopAndSend" transform="translate(20, 606)">
+    <rect width="350" height="56" rx="28" fill="#8C1D18"/>
+    <rect x="22" y="18" width="20" height="20" rx="4" fill="#F2B8B5"/>
+    <text x="56" y="34" font-family="'Roboto', sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Stop &amp; Extract Flashcards</text>
+    <path d="M310 28L300 22V34L310 28Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Material 3 Navigation Bar (Bottom Navigation) -->
+  <g id="m3NavigationBar" transform="translate(0, 684)">
+    <rect width="390" height="80" fill="#1D1B20" stroke="#36343B" stroke-width="1"/>
+    
+    <!-- Item 1: Record (Active) -->
+    <g transform="translate(48, 12)">
+      <rect width="64" height="32" rx="16" fill="#4F378B"/>
+      <circle cx="32" cy="16" r="6" fill="#E8DEF8"/>
+      <text x="17" y="52" font-family="'Roboto', sans-serif" font-size="11" font-weight="700" fill="#E8DEF8">Record</text>
+    </g>
+
+    <!-- Item 2: Flashcards Study -->
+    <g transform="translate(162, 12)">
+      <rect width="20" height="24" rx="3" stroke="#CAC4D0" stroke-width="1.8" x="22" y="4"/>
+      <text x="12" y="52" font-family="'Roboto', sans-serif" font-size="11" font-weight="500" fill="#CAC4D0">Study (14)</text>
+    </g>
+
+    <!-- Item 3: History & Sync -->
+    <g transform="translate(280, 12)">
+      <circle cx="32" cy="16" r="10" stroke="#CAC4D0" stroke-width="1.8"/>
+      <path d="M32 10V16L36 18" stroke="#CAC4D0" stroke-width="1.8"/>
+      <text x="20" y="52" font-family="'Roboto', sans-serif" font-size="11" font-weight="500" fill="#CAC4D0">History</text>
+    </g>
+  </g>
+
+  <!-- Android Gesture Pill / Home Bar -->
+  <rect x="125" y="828" width="140" height="4" rx="2" fill="#E6E0E9"/>
 </svg>

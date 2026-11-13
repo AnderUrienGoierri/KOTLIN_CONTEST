@@ -1,67 +1,168 @@
 <svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <style>
-      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #F0F3F6; }
-      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
-      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; }
-    </style>
+    <linearGradient id="bgCanvasGradSet" x1="0" y1="0" x2="1280" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0E1015"/>
+      <stop offset="50%" stop-color="#14171E"/>
+      <stop offset="100%" stop-color="#0D0F13"/>
+    </linearGradient>
+
+    <linearGradient id="brandLinearSet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7F52FF"/>
+      <stop offset="100%" stop-color="#E040FB"/>
+    </linearGradient>
+
+    <linearGradient id="cardSurfaceSet" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E222B"/>
+      <stop offset="100%" stop-color="#161920"/>
+    </linearGradient>
+
+    <linearGradient id="cardBorderSet" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.16)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.03)"/>
+    </linearGradient>
   </defs>
 
-  <rect id="bgBase" width="1280" height="800" fill="#181A1F"/>
+  <!-- Background Base -->
+  <rect id="bgBase" width="1280" height="800" fill="url(#bgCanvasGradSet)"/>
 
-  <!-- Left Sidebar -->
+  <!-- Left Sidebar (JetBrains Int UI Style) -->
   <g id="sidebarContainer">
-    <rect width="260" height="800" fill="#14161A" stroke="#2E333D" stroke-width="1"/>
-    <text x="20" y="44" class="font-title">LectureSync AI</text>
-    <g id="btnNavSettings" transform="translate(12, 282)">
-      <rect width="236" height="40" rx="6" fill="rgba(127, 82, 255, 0.15)"/>
-      <rect width="4" height="40" fill="#7F52FF"/>
-      <text x="18" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#B388FF">Settings &amp; AI Config</text>
+    <rect width="250" height="800" fill="#111317" stroke="#1F232B" stroke-width="1"/>
+    
+    <!-- Brand Header -->
+    <g id="brandHeader" transform="translate(18, 20)">
+      <rect width="36" height="36" rx="10" fill="url(#brandLinearSet)"/>
+      <path d="M14 11L22 18L14 25" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="48" y="18" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#F0F3F6">LectureSync</text>
+      <rect x="135" y="6" width="34" height="18" rx="4" fill="rgba(127, 82, 255, 0.2)"/>
+      <text x="142" y="19" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#B388FF">AI</text>
+      <text x="48" y="32" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Int UI Preferences</text>
+    </g>
+
+    <!-- Navigation Items -->
+    <g id="navGroup" transform="translate(14, 126)">
+      <text x="8" y="10" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="0.8" fill="#505663">WORKSPACE</text>
+
+      <g id="btnNavDashboard" transform="translate(0, 20)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Dashboard</text>
+      </g>
+      <g id="btnNavLive" transform="translate(0, 60)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Live Studio</text>
+      </g>
+      <g id="btnNavFlashcards" transform="translate(0, 100)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Flashcards &amp; Quizzes</text>
+      </g>
+      <g id="btnNavMindMaps" transform="translate(0, 140)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Concept Maps</text>
+      </g>
+
+      <!-- Active: Settings -->
+      <g id="btnNavSettings" transform="translate(0, 180)">
+        <rect width="222" height="36" rx="8" fill="rgba(127, 82, 255, 0.12)" stroke="rgba(127, 82, 255, 0.25)"/>
+        <rect x="0" y="8" width="3" height="20" rx="1.5" fill="#7F52FF"/>
+        <circle cx="21" cy="18" r="3" stroke="#B388FF" stroke-width="1.8"/>
+        <path d="M21 11V13M21 23V25M14 18H16M26 18H28" stroke="#B388FF" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Settings &amp; AI Config</text>
+      </g>
     </g>
   </g>
 
   <!-- Top Bar -->
-  <g id="topBar" transform="translate(260, 0)">
-    <rect width="1020" height="64" fill="#181A1F" stroke="#2E333D" stroke-width="1"/>
-    <text x="28" y="37" font-family="sans-serif" font-size="13" fill="#9DA5B4">Settings / <tspan font-weight="bold" fill="#F0F3F6">AI Models, Audio &amp; SQLite Storage</tspan></text>
+  <g id="topBar" transform="translate(250, 0)">
+    <rect width="1030" height="64" fill="#111317" stroke="#1F232B" stroke-width="1"/>
+    <g transform="translate(28, 23)">
+      <text x="0" y="0" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Preferences</text>
+      <text x="80" y="0" font-family="'Inter', sans-serif" font-size="13" fill="#505663">/</text>
+      <text x="94" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">AI Models, Audio &amp; SQLite Storage</text>
+    </g>
   </g>
 
-  <!-- Settings Form Content -->
-  <g id="settingsContent" transform="translate(288, 88)">
-    <rect width="964" height="668" rx="8" fill="#21252B" stroke="#2E333D"/>
+  <!-- Settings Main Layout (IntelliJ Preferences Dialog Style) -->
+  <g id="settingsContent" transform="translate(280, 84)">
     
-    <text x="32" y="48" font-family="sans-serif" font-size="20" font-weight="bold" fill="#F0F3F6">Application Preferences</text>
-    <text x="32" y="72" class="font-sub">Configure Gemini 2.5 Flash, audio sampling, and offline database synchronization.</text>
-
-    <!-- Section 1: AI Engine -->
-    <g id="grpAiEngine" transform="translate(32, 110)">
-      <text x="0" y="20" class="font-title">AI Engine &amp; API Key</text>
+    <!-- Sub-categories tree column (JetBrains style) -->
+    <g id="settingsCategories">
+      <rect width="220" height="680" rx="10" fill="#14171E" stroke="#1F232B"/>
       
-      <!-- Model Dropdown Simulation -->
-      <g id="cmbModelSelector" transform="translate(0, 36)">
-        <rect width="420" height="42" rx="6" fill="#181A1F" stroke="#2E333D"/>
-        <text x="16" y="26" font-family="sans-serif" font-size="13" fill="#F0F3F6">Gemini 2.5 Flash (Recommended - Lowest Latency)</text>
+      <!-- Tree search -->
+      <g transform="translate(12, 16)">
+        <rect width="196" height="30" rx="6" fill="#1B1F27" stroke="#252A35"/>
+        <text x="12" y="19" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Search settings...</text>
       </g>
 
-      <!-- API Key Field -->
-      <g id="txtApiKey" transform="translate(0, 92)">
-        <rect width="420" height="42" rx="6" fill="#181A1F" stroke="#2E333D"/>
-        <text x="16" y="26" font-family="sans-serif" font-size="13" fill="#5C6370">●●●●●●●●●●●●●●●●●●●●●●●● (Stored in .env)</text>
+      <g transform="translate(12, 60)">
+        <!-- Category 1: AI Engine (Active) -->
+        <rect width="196" height="32" rx="6" fill="rgba(127, 82, 255, 0.15)"/>
+        <text x="16" y="21" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">AI Cognitive Engine</text>
+
+        <!-- Category 2: Audio & Transcription -->
+        <text x="16" y="58" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Audio &amp; Ktor Stream</text>
+
+        <!-- Category 3: Local SQLite DB -->
+        <text x="16" y="94" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Local SQLite &amp; SM-2</text>
+
+        <!-- Category 4: Android Sync -->
+        <text x="16" y="130" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Android Mobile Sync</text>
+
+        <!-- Category 5: Appearance -->
+        <text x="16" y="166" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Appearance &amp; Theme</text>
       </g>
     </g>
 
-    <!-- Section 2: Storage & Sync -->
-    <g id="grpStorageSync" transform="translate(32, 280)">
-      <text x="0" y="20" class="font-title">Local SQLite Storage &amp; Cache</text>
-      <rect y="36" width="600" height="80" rx="6" fill="#1A1D23" stroke="#2E333D"/>
-      <text x="20" y="68" class="font-sub">Database file: `lecturesync.db` (Schema v1.2)</text>
-      <text x="20" y="94" font-family="sans-serif" font-size="12" fill="#28A745">Status: Healthy (28 lectures, 142 flashcards, 41.5h audio)</text>
+    <!-- Settings Form Fields (Right Panel) -->
+    <g id="settingsForm" transform="translate(240, 0)">
+      <rect width="730" height="680" rx="10" fill="#161920" stroke="#222631"/>
+
+      <!-- Header -->
+      <g transform="translate(32, 28)">
+        <text x="0" y="20" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#F0F3F6">AI Cognitive Engine &amp; API Key</text>
+        <text x="0" y="42" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Configure Gemini multimodal models, temperature, and zero-leak API key handling.</text>
+      </g>
+
+      <!-- Section 1: AI Model Selector -->
+      <g transform="translate(32, 94)">
+        <text x="0" y="14" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#C5CAD3">Default Model</text>
+        <rect y="24" width="460" height="40" rx="8" fill="#1C2029" stroke="#2B3242"/>
+        <text x="16" y="49" font-family="'Inter', sans-serif" font-size="13" fill="#F0F3F6">Gemini 2.5 Flash (Fastest transcription &amp; lowest latency)</text>
+        <path d="M436 42L442 48L448 42" stroke="#8A92A2" stroke-width="1.8" stroke-linecap="round"/>
+      </g>
+
+      <!-- Section 2: API Key input -->
+      <g transform="translate(32, 178)">
+        <text x="0" y="14" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#C5CAD3">Google AI Gemini API Key</text>
+        <rect y="24" width="460" height="40" rx="8" fill="#1C2029" stroke="#2B3242"/>
+        <text x="16" y="49" font-family="'JetBrains Mono', monospace" font-size="13" fill="#8A92A2">●●●●●●●●●●●●●●●●●●●●●●●● (Stored securely in .env)</text>
+        <!-- Test connection pill -->
+        <rect x="472" y="24" width="120" height="40" rx="8" fill="#252A36" stroke="#363E52"/>
+        <text x="492" y="49" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#36D399">✓ Verified</text>
+      </g>
+
+      <!-- Section 3: SQLite Storage & Persistence -->
+      <g transform="translate(32, 274)">
+        <text x="0" y="14" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#C5CAD3">Local SQLite Database Storage</text>
+        <rect y="24" width="600" height="96" rx="8" fill="#14171E" stroke="#252A35"/>
+        <text x="18" y="52" font-family="'JetBrains Mono', monospace" font-size="12" fill="#E6E0E9">jdbc:sqlite:lecturesync.db (Schema v1.2)</text>
+        <text x="18" y="74" font-family="'Inter', sans-serif" font-size="12" fill="#717886">Tables: lectures, transcripts, flashcards, study_logs, mind_maps</text>
+        <text x="18" y="96" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#36D399">● Status: Healthy · 28 lectures · 142 flashcards · 41.5 h audio</text>
+      </g>
+
+      <!-- Section 4: Ktor Local Server Port -->
+      <g transform="translate(32, 404)">
+        <text x="0" y="14" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#C5CAD3">Ktor WebSocket Sync Server</text>
+        <rect y="24" width="220" height="40" rx="8" fill="#1C2029" stroke="#2B3242"/>
+        <text x="16" y="49" font-family="'JetBrains Mono', monospace" font-size="13" fill="#F0F3F6">Port 8080</text>
+        <text x="250" y="49" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Listening for Android clients on LAN</text>
+      </g>
+
+      <!-- Save Button -->
+      <g id="btnSavePreferences" transform="translate(32, 590)">
+        <rect width="160" height="44" rx="8" fill="#7F52FF"/>
+        <text x="36" y="27" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Save Changes</text>
+
+        <rect x="174" y="0" width="100" height="44" rx="8" fill="#252A36" stroke="#363E52"/>
+        <text x="202" y="27" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#8A92A2">Cancel</text>
+      </g>
     </g>
 
-    <!-- Save Button -->
-    <g id="btnSavePreferences" transform="translate(32, 420)">
-      <rect width="180" height="44" rx="8" fill="#7F52FF"/>
-      <text x="44" y="27" class="font-btn">Save Changes</text>
-    </g>
   </g>
 </svg>

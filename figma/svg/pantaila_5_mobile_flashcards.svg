@@ -1,62 +1,159 @@
 <svg width="390" height="844" viewBox="0 0 390 844" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <style>
-      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 18px; font-weight: bold; fill: #F0F3F6; }
-      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
-      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 14px; font-weight: bold; fill: #FFFFFF; }
-    </style>
+    <!-- Material 3 Dark Color Tokens (Purple M3 Theme) -->
+    <linearGradient id="m3BgGradStudy" x1="0" y1="0" x2="390" y2="844" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#141218"/>
+      <stop offset="100%" stop-color="#1D1A22"/>
+    </linearGradient>
+
+    <linearGradient id="m3StudyCardGrad" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#2B2930"/>
+      <stop offset="100%" stop-color="#211F26"/>
+    </linearGradient>
+
+    <filter id="m3CardElevationStudy" x="-10" y="-5" width="370" height="420" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#D0BCFF" flood-opacity="0.1"/>
+    </filter>
   </defs>
 
-  <rect id="bgMobileBase" width="390" height="844" rx="40" fill="#181A1F" stroke="#2E333D" stroke-width="4"/>
-  <rect id="mobileNotch" x="135" y="14" width="120" height="28" rx="14" fill="#000000"/>
+  <!-- Phone Shell Base (Material 3 Dark) -->
+  <rect id="bgMobileBase" width="390" height="844" rx="44" fill="url(#m3BgGradStudy)" stroke="#36343B" stroke-width="3"/>
 
-  <!-- Top Bar -->
-  <g id="mobileTopBar" transform="translate(24, 60)">
-    <text x="0" y="22" class="font-title">Quick Review</text>
-    <text x="0" y="40" class="font-sub">Distributed Systems Deck (Leitner Box 2)</text>
+  <!-- Status Bar (Android 14 / Pixel) -->
+  <g id="m3StatusBar" transform="translate(24, 14)">
+    <text x="6" y="16" font-family="'Roboto', sans-serif" font-size="14" font-weight="600" fill="#E6E0E9">10:14</text>
+    <circle cx="171" cy="12" r="10" fill="#000000"/>
+    <g transform="translate(300, 4)">
+      <path d="M0 12L12 0V12H0Z" fill="#E6E0E9"/>
+      <rect x="22" y="2" width="16" height="9" rx="2" stroke="#E6E0E9" stroke-width="1.2"/>
+      <rect x="24" y="4" width="11" height="5" rx="1" fill="#D0BCFF"/>
+      <rect x="39" y="5" width="2" height="3" rx="0.5" fill="#E6E0E9"/>
+    </g>
   </g>
 
-  <!-- Mobile Flashcard -->
-  <g id="cardMobileStudy" transform="translate(24, 130)">
-    <rect width="342" height="420" rx="20" fill="#21252B" stroke="#2E333D"/>
+  <!-- Material 3 Top App Bar -->
+  <g id="m3TopAppBar" transform="translate(16, 52)">
+    <circle cx="20" cy="24" r="18" fill="rgba(255, 255, 255, 0.05)"/>
+    <path d="M24 16L16 24L24 32" stroke="#E6E0E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <text x="52" y="22" font-family="'Roboto', sans-serif" font-size="18" font-weight="700" fill="#E6E0E9">Distributed Systems</text>
+    <text x="52" y="38" font-family="'Roboto', sans-serif" font-size="12" font-weight="500" fill="#CAC4D0">Card 4 of 18 · Leitner Box 2</text>
+
+    <!-- Linear Progress Indicator -->
+    <rect x="52" y="46" width="300" height="4" rx="2" fill="#36343B"/>
+    <rect x="52" y="46" width="114" height="4" rx="2" fill="#D0BCFF"/>
+  </g>
+
+  <!-- M3 Central Card: Interactive Flashcard -->
+  <g id="cardMobileStudy" transform="translate(20, 116)" filter="url(#m3CardElevationStudy)">
+    <rect width="350" height="390" rx="28" fill="url(#m3StudyCardGrad)" stroke="#49454F" stroke-width="1"/>
+
+    <!-- Category Chip -->
+    <g transform="translate(24, 24)">
+      <rect width="110" height="26" rx="8" fill="#4F378B"/>
+      <text x="12" y="17" font-family="'Roboto', sans-serif" font-size="11" font-weight="700" fill="#E8DEF8">Concurrency</text>
+
+      <rect x="118" y="0" width="70" height="26" rx="8" fill="#36343B"/>
+      <text x="128" y="17" font-family="'Roboto', sans-serif" font-size="11" font-weight="500" fill="#CAC4D0">Exam P1</text>
+    </g>
+
+    <!-- Question Body -->
+    <g id="txtMobileQuestion" transform="translate(24, 80)">
+      <text x="0" y="20" font-family="'Roboto', sans-serif" font-size="12" font-weight="700" letter-spacing="1" fill="#D0BCFF">QUESTION</text>
+      
+      <text x="0" y="60" font-family="'Roboto', sans-serif" font-size="24" font-weight="700" fill="#E6E0E9" line-height="32">
+        What does
+      </text>
+      <text x="0" y="94" font-family="'Roboto', sans-serif" font-size="24" font-weight="700" fill="#D0BCFF" line-height="32">
+        `Dispatchers.JavaFx`
+      </text>
+      <text x="0" y="128" font-family="'Roboto', sans-serif" font-size="24" font-weight="700" fill="#E6E0E9" line-height="32">
+        guarantee in KMP?
+      </text>
+
+      <!-- Context Note -->
+      <g transform="translate(0, 160)">
+        <rect width="302" height="48" rx="12" fill="#141218" stroke="#36343B"/>
+        <text x="14" y="24" font-family="'Roboto', sans-serif" font-size="11" fill="#CAC4D0">Ensures state mutations execute strictly</text>
+        <text x="14" y="38" font-family="'Roboto', sans-serif" font-size="11" fill="#CAC4D0">on the JavaFX Application UI Thread.</text>
+      </g>
+    </g>
+
+    <!-- Flip Button (M3 Filled Tonal Button) -->
+    <g id="btnMobileFlip" transform="translate(24, 320)">
+      <rect width="302" height="48" rx="24" fill="#381E72"/>
+      <path d="M100 24C100 20 103.5 17 107.5 17C110.5 17 113 18.8 114 21.5M114.5 24C114.5 28 111 31 107 31C104 31 101.5 29.2 100.5 26.5" stroke="#E8DEF8" stroke-width="1.8" stroke-linecap="round"/>
+      <text x="124" y="29" font-family="'Roboto', sans-serif" font-size="14" font-weight="600" fill="#E8DEF8">Tap to Reveal Answer</text>
+    </g>
+  </g>
+
+  <!-- M3 Rating Action Buttons (SM-2 Interval Chips) -->
+  <g id="mobileRatingButtons" transform="translate(20, 526)">
+    <!-- Again Button -->
+    <g id="btnReviewAgain" transform="translate(0, 0)">
+      <rect width="80" height="52" rx="16" fill="#3E1C1A" stroke="#8C1D18" stroke-width="1"/>
+      <text x="24" y="24" font-family="'Roboto', sans-serif" font-size="13" font-weight="700" fill="#F2B8B5">Again</text>
+      <text x="26" y="40" font-family="'Roboto', sans-serif" font-size="11" fill="#E6B5B3">&lt; 1m</text>
+    </g>
+
+    <!-- Hard Button -->
+    <g id="btnReviewHard" transform="translate(88, 0)">
+      <rect width="80" height="52" rx="16" fill="#2E2310" stroke="#7A5B0B" stroke-width="1"/>
+      <text x="26" y="24" font-family="'Roboto', sans-serif" font-size="13" font-weight="700" fill="#FFE082">Hard</text>
+      <text x="30" y="40" font-family="'Roboto', sans-serif" font-size="11" fill="#D6BA63">1d</text>
+    </g>
+
+    <!-- Good Button (Active / Emphasized) -->
+    <g id="btnReviewGood" transform="translate(176, 0)">
+      <rect width="84" height="52" rx="16" fill="#1E283C" stroke="#3874CB" stroke-width="1.5"/>
+      <text x="26" y="24" font-family="'Roboto', sans-serif" font-size="13" font-weight="700" fill="#90CAF9">Good</text>
+      <text x="30" y="40" font-family="'Roboto', sans-serif" font-size="11" fill="#75A4E0">3d</text>
+    </g>
+
+    <!-- Easy Button -->
+    <g id="btnReviewEasy" transform="translate(268, 0)">
+      <rect width="82" height="52" rx="16" fill="#142B20" stroke="#2E7D32" stroke-width="1"/>
+      <text x="28" y="24" font-family="'Roboto', sans-serif" font-size="13" font-weight="700" fill="#A5D6A7">Easy</text>
+      <text x="31" y="40" font-family="'Roboto', sans-serif" font-size="11" fill="#81C784">7d</text>
+    </g>
+  </g>
+
+  <!-- Streak & Mastery Info Card -->
+  <g id="mobileProgress" transform="translate(20, 600)">
+    <rect width="350" height="64" rx="16" fill="#211F26" stroke="#36343B"/>
+    <circle cx="36" cy="32" r="16" fill="#381E72"/>
+    <text x="30" y="37" font-family="'Roboto', sans-serif" font-size="14" font-weight="700" fill="#D0BCFF">🔥</text>
     
-    <rect x="20" y="24" width="80" height="22" rx="4" fill="rgba(127, 82, 255, 0.2)"/>
-    <text x="28" y="39" font-family="sans-serif" font-size="10" font-weight="bold" fill="#B388FF">Card 4 / 18</text>
+    <text x="64" y="28" font-family="'Roboto', sans-serif" font-size="13" font-weight="600" fill="#E6E0E9">Daily Retention Streak: 4 days</text>
+    <text x="64" y="44" font-family="'Roboto', sans-serif" font-size="11" fill="#CAC4D0">14 cards remaining in today's spaced review</text>
+  </g>
 
-    <!-- Question -->
-    <text x="20" y="100" font-family="sans-serif" font-size="18" font-weight="bold" fill="#F0F3F6">What does</text>
-    <text x="20" y="126" font-family="sans-serif" font-size="18" font-weight="bold" fill="#F0F3F6">`Dispatchers.JavaFx`</text>
-    <text x="20" y="152" font-family="sans-serif" font-size="18" font-weight="bold" fill="#F0F3F6">guarantee in KMP?</text>
+  <!-- Material 3 Navigation Bar (Bottom Navigation) -->
+  <g id="m3NavigationBar" transform="translate(0, 684)">
+    <rect width="390" height="80" fill="#1D1B20" stroke="#36343B" stroke-width="1"/>
+    
+    <!-- Item 1: Record -->
+    <g transform="translate(48, 12)">
+      <circle cx="32" cy="16" r="6" fill="#CAC4D0"/>
+      <text x="17" y="52" font-family="'Roboto', sans-serif" font-size="11" font-weight="500" fill="#CAC4D0">Record</text>
+    </g>
 
-    <!-- Flip Button -->
-    <g id="btnMobileFlip" transform="translate(20, 340)">
-      <rect width="302" height="48" rx="10" fill="#30353E" stroke="#3E4451"/>
-      <text x="100" y="29" class="font-btn">Tap to Reveal Answer</text>
+    <!-- Item 2: Flashcards Study (Active) -->
+    <g transform="translate(162, 12)">
+      <rect width="64" height="32" rx="16" fill="#4F378B"/>
+      <rect width="18" height="20" rx="3" fill="#E8DEF8" x="23" y="6"/>
+      <text x="15" y="52" font-family="'Roboto', sans-serif" font-size="11" font-weight="700" fill="#E8DEF8">Study</text>
+    </g>
+
+    <!-- Item 3: History & Sync -->
+    <g transform="translate(280, 12)">
+      <circle cx="32" cy="16" r="10" stroke="#CAC4D0" stroke-width="1.8"/>
+      <path d="M32 10V16L36 18" stroke="#CAC4D0" stroke-width="1.8"/>
+      <text x="20" y="52" font-family="'Roboto', sans-serif" font-size="11" font-weight="500" fill="#CAC4D0">History</text>
     </g>
   </g>
 
-  <!-- Response Rating Buttons -->
-  <g id="mobileRatingButtons" transform="translate(24, 576)">
-    <g id="btnReviewAgain">
-      <rect width="106" height="50" rx="10" fill="#E06C75"/>
-      <text x="20" y="30" class="font-btn">Hard (1d)</text>
-    </g>
-    <g id="btnReviewGood" transform="translate(118, 0)">
-      <rect width="106" height="50" rx="10" fill="#3574F0"/>
-      <text x="18" y="30" class="font-btn">Good (3d)</text>
-    </g>
-    <g id="btnReviewEasy" transform="translate(236, 0)">
-      <rect width="106" height="50" rx="10" fill="#28A745"/>
-      <text x="20" y="30" class="font-btn">Easy (7d)</text>
-    </g>
-  </g>
-
-  <!-- Progress Bar -->
-  <g id="mobileProgress" transform="translate(24, 650)">
-    <rect width="342" height="6" rx="3" fill="#2E333D"/>
-    <rect width="130" height="6" rx="3" fill="#7F52FF"/>
-    <text x="0" y="24" class="font-sub">Daily streak: 4 days (38% done)</text>
-  </g>
-
-  <rect x="125" y="826" width="140" height="4" rx="2" fill="#FFFFFF"/>
+  <!-- Android Gesture Pill / Home Bar -->
+  <rect x="125" y="828" width="140" height="4" rx="2" fill="#E6E0E9"/>
 </svg>

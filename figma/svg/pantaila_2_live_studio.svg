@@ -1,117 +1,242 @@
 <svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <style>
-      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #F0F3F6; }
-      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
-      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; }
-      .font-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #D1D5DB; }
-    </style>
+    <linearGradient id="bgCanvasGradLive" x1="0" y1="0" x2="1280" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0E1015"/>
+      <stop offset="50%" stop-color="#14171E"/>
+      <stop offset="100%" stop-color="#0D0F13"/>
+    </linearGradient>
+
+    <linearGradient id="brandLinearLive" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7F52FF"/>
+      <stop offset="100%" stop-color="#E040FB"/>
+    </linearGradient>
+
+    <linearGradient id="waveBarGrad" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="50%" stop-color="#7F52FF"/>
+      <stop offset="100%" stop-color="#E040FB"/>
+    </linearGradient>
+
+    <linearGradient id="cardSurfaceLive" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E222B"/>
+      <stop offset="100%" stop-color="#161920"/>
+    </linearGradient>
+
+    <linearGradient id="cardBorderLive" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.16)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.03)"/>
+    </linearGradient>
   </defs>
 
-  <!-- Background -->
-  <rect id="bgBase" width="1280" height="800" fill="#181A1F"/>
+  <!-- Background Base -->
+  <rect id="bgBase" width="1280" height="800" fill="url(#bgCanvasGradLive)"/>
 
-  <!-- Left Sidebar (Collapsed or standard) -->
+  <!-- Left Sidebar (JetBrains Int UI Style) -->
   <g id="sidebarContainer">
-    <rect width="260" height="800" fill="#14161A" stroke="#2E333D" stroke-width="1"/>
-    <text x="20" y="44" class="font-title">LectureSync AI</text>
+    <rect width="250" height="800" fill="#111317" stroke="#1F232B" stroke-width="1"/>
     
-    <g id="btnNavLive" transform="translate(12, 90)">
-      <rect width="236" height="40" rx="6" fill="rgba(127, 82, 255, 0.15)"/>
-      <rect width="4" height="40" fill="#7F52FF"/>
-      <text x="18" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#B388FF">Live Lecture Studio</text>
+    <g id="brandHeader" transform="translate(18, 20)">
+      <rect width="36" height="36" rx="10" fill="url(#brandLinearLive)"/>
+      <path d="M14 11L22 18L14 25" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="48" y="18" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#F0F3F6">LectureSync</text>
+      <rect x="135" y="6" width="34" height="18" rx="4" fill="rgba(127, 82, 255, 0.2)"/>
+      <text x="142" y="19" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#B388FF">AI</text>
+      <text x="48" y="32" font-family="'Inter', sans-serif" font-size="11" fill="#717886">JetBrains Int UI · KMP</text>
+    </g>
+
+    <g id="navGroup" transform="translate(14, 126)">
+      <text x="8" y="10" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="0.8" fill="#505663">WORKSPACE</text>
+
+      <!-- Nav: Dashboard -->
+      <g id="btnNavDashboard" transform="translate(0, 20)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Dashboard</text>
+      </g>
+
+      <!-- Active: Live Studio -->
+      <g id="btnNavLive" transform="translate(0, 62)">
+        <rect width="222" height="36" rx="8" fill="rgba(127, 82, 255, 0.12)" stroke="rgba(127, 82, 255, 0.25)"/>
+        <rect x="0" y="8" width="3" height="20" rx="1.5" fill="#7F52FF"/>
+        <path d="M18 12C15.8 12 14 13.8 14 16V22C14 24.2 15.8 26 18 26C20.2 26 22 24.2 22 22V16C22 13.8 20.2 12 18 12Z" stroke="#B388FF" stroke-width="1.8"/>
+        <path d="M11 20C11 23.9 14.1 27 18 27C21.9 27 25 23.9 25 20" stroke="#B388FF" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Live Studio</text>
+        <circle cx="206" cy="18" r="4" fill="#E06C75"/>
+      </g>
+
+      <!-- Nav: Flashcards -->
+      <g id="btnNavFlashcards" transform="translate(0, 102)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Flashcards &amp; Quizzes</text>
+      </g>
+
+      <!-- Nav: Mind Maps -->
+      <g id="btnNavMindMaps" transform="translate(0, 142)">
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Concept Maps</text>
+      </g>
     </g>
   </g>
 
   <!-- Top Bar -->
-  <g id="topBar" transform="translate(260, 0)">
-    <rect width="1020" height="64" fill="#181A1F" stroke="#2E333D" stroke-width="1"/>
-    <text x="28" y="37" font-family="sans-serif" font-size="13" fill="#9DA5B4">Live Session / <tspan font-weight="bold" fill="#F0F3F6">Advanced Concurrency &amp; StateFlow</tspan></text>
+  <g id="topBar" transform="translate(250, 0)">
+    <rect width="1030" height="64" fill="#111317" stroke="#1F232B" stroke-width="1"/>
     
-    <g id="btnRecToggle" transform="translate(820, 14)">
-      <rect width="170" height="36" rx="6" fill="#E06C75"/>
-      <circle cx="22" cy="18" r="5" fill="#FFF"/>
-      <text x="36" y="23" class="font-btn">Stop Recording</text>
+    <g transform="translate(28, 22)">
+      <text font-family="'Inter', sans-serif" font-size="13" fill="#717886">Live Session</text>
+      <text x="80" y="0" font-family="'Inter', sans-serif" font-size="13" fill="#4B5262">/</text>
+      <text x="92" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#F0F3F6">Advanced Kotlin Concurrency &amp; StateFlow</text>
+    </g>
+
+    <!-- Recording Controls & Gemini Live Pill -->
+    <g transform="translate(730, 14)">
+      <!-- Gemini Live Pill -->
+      <rect width="130" height="36" rx="8" fill="rgba(34, 197, 94, 0.12)" stroke="rgba(34, 197, 94, 0.3)"/>
+      <circle cx="16" cy="18" r="4" fill="#22C55E"/>
+      <text x="28" y="23" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#22C55E">Gemini 2.5 Live</text>
+
+      <!-- Stop Recording Button -->
+      <g id="btnRecToggle" transform="translate(142, 0)">
+        <rect width="138" height="36" rx="8" fill="#E06C75"/>
+        <rect x="16" y="13" width="10" height="10" rx="2" fill="#FFF"/>
+        <text x="34" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFF">Stop Session</text>
+      </g>
     </g>
   </g>
 
-  <!-- Workspace 2-Columns: Left = Audio & Transcript, Right = AI MindMap & Flashcards -->
-  <g id="liveWorkspace" transform="translate(288, 88)">
-    <!-- Left Column (600px width) -->
-    <g id="pnlAudioAndTranscript">
-      <!-- Live Audio Waveform Box -->
+  <!-- Live Studio Workspace -->
+  <g id="liveWorkspace" transform="translate(278, 84)">
+    
+    <!-- Left Column: Audio Frequency Equalizer + Real-time Transcript (600px width) -->
+    <g id="leftColumnLive">
+      <!-- Audio Spectrum Visualizer Card -->
       <g id="cardAudioStream">
-        <rect width="580" height="120" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="18" y="28" class="font-title">Real-time Audio Stream</text>
-        <rect x="460" y="14" width="104" height="22" rx="4" fill="rgba(224, 108, 117, 0.2)"/>
-        <text x="472" y="30" font-family="sans-serif" font-size="11" font-weight="bold" fill="#E06C75">● REC 00:24:18</text>
+        <rect width="590" height="130" rx="12" fill="url(#cardSurfaceLive)" stroke="url(#cardBorderLive)"/>
+        
+        <text x="20" y="28" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#F0F3F6">Multiplatform Real-time Audio Stream</text>
+        <text x="20" y="44" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Input: Android Pixel 8 Mic · 48 kHz Opus WebSocket Stream</text>
 
-        <!-- Waveform Simulation -->
-        <g id="waveformGraphic" transform="translate(18, 50)">
-          <rect x="0" y="20" width="8" height="24" rx="2" fill="#7F52FF"/>
-          <rect x="14" y="8" width="8" height="48" rx="2" fill="#7F52FF"/>
-          <rect x="28" y="16" width="8" height="32" rx="2" fill="#7F52FF"/>
-          <rect x="42" y="2" width="8" height="60" rx="2" fill="#7F52FF"/>
-          <rect x="56" y="18" width="8" height="28" rx="2" fill="#7F52FF"/>
-          <rect x="70" y="10" width="8" height="44" rx="2" fill="#7F52FF"/>
-          <rect x="84" y="24" width="8" height="16" rx="2" fill="#7F52FF"/>
-          <rect x="98" y="4" width="8" height="56" rx="2" fill="#7F52FF"/>
-          <rect x="112" y="14" width="8" height="36" rx="2" fill="#7F52FF"/>
-          <rect x="126" y="22" width="8" height="20" rx="2" fill="#7F52FF"/>
+        <!-- Timer Chip -->
+        <rect x="470" y="16" width="104" height="24" rx="6" fill="rgba(224, 108, 117, 0.15)" stroke="rgba(224, 108, 117, 0.3)"/>
+        <circle cx="482" cy="28" r="3.5" fill="#E06C75"/>
+        <text x="492" y="32" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#E06C75">00:34:12</text>
+
+        <!-- Dynamic High-Fidelity Waveform Spectrum -->
+        <g id="waveformGraphic" transform="translate(20, 62)">
+          <rect x="0" y="24" width="6" height="28" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="10" y="12" width="6" height="40" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="20" y="4" width="6" height="48" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="30" y="18" width="6" height="34" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="40" y="0" width="6" height="52" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="50" y="14" width="6" height="38" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="60" y="8" width="6" height="44" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="70" y="22" width="6" height="30" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="80" y="2" width="6" height="50" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="90" y="16" width="6" height="36" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="100" y="6" width="6" height="46" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="110" y="20" width="6" height="32" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="120" y="10" width="6" height="42" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="130" y="0" width="6" height="52" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="140" y="16" width="6" height="36" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="150" y="8" width="6" height="44" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="160" y="26" width="6" height="26" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="170" y="4" width="6" height="48" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="180" y="14" width="6" height="38" rx="3" fill="url(#waveBarGrad)"/>
+          <rect x="190" y="18" width="6" height="34" rx="3" fill="url(#waveBarGrad)"/>
         </g>
       </g>
 
-      <!-- Live Transcript Box -->
-      <g id="txtTranscript" transform="translate(0, 140)">
-        <rect width="580" height="520" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="18" y="32" class="font-title">Live Synchronous Transcript</text>
-        <rect x="18" y="52" width="544" height="448" rx="6" fill="#1A1D23" stroke="#2E333D"/>
-        <text x="32" y="84" class="font-mono">[10:14:02] Prof. Martinez: Welcome everyone.</text>
-        <text x="32" y="112" class="font-mono">[10:14:15] Today we dive into Kotlin Multiplatform's</text>
-        <text x="32" y="140" class="font-mono">structured concurrency patterns and StateFlow.</text>
-        <text x="32" y="178" class="font-mono">[AI Note]: Key definition detected: StateFlow is a</text>
-        <text x="32" y="206" class="font-mono">state-holder observable flow that emits current and new state.</text>
+      <!-- Live Transcript Card -->
+      <g id="cardTranscript" transform="translate(0, 146)">
+        <rect width="590" height="510" rx="12" fill="url(#cardSurfaceLive)" stroke="url(#cardBorderLive)"/>
+        
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#F0F3F6">Synchronous Transcript (Gemini Speech)</text>
+        
+        <g transform="translate(420, 16)">
+          <rect width="150" height="30" rx="6" fill="#252A36" stroke="#363C4C"/>
+          <text x="14" y="20" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#F0F3F6">Request AI Note</text>
+        </g>
+
+        <!-- Transcript Content Console -->
+        <g id="txtTranscript" transform="translate(20, 62)">
+          <rect width="550" height="424" rx="8" fill="#12141A" stroke="#21252E"/>
+          
+          <text x="18" y="34" font-family="'JetBrains Mono', monospace" font-size="11" fill="#717886">10:14:02</text>
+          <text x="80" y="34" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#38BDF8">Prof. Martinez:</text>
+          <text x="180" y="34" font-family="'Inter', sans-serif" font-size="12" fill="#D1D5DB">"Welcome everyone. Today we examine KMP concurrency."</text>
+
+          <text x="18" y="74" font-family="'JetBrains Mono', monospace" font-size="11" fill="#717886">10:14:28</text>
+          <text x="80" y="74" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#38BDF8">Prof. Martinez:</text>
+          <text x="180" y="74" font-family="'Inter', sans-serif" font-size="12" fill="#D1D5DB">"When dispatching tasks, structured concurrency guarantees cancellation."</text>
+
+          <!-- Highlighted AI Box -->
+          <rect x="18" y="110" width="514" height="64" rx="6" fill="rgba(127, 82, 255, 0.12)" stroke="rgba(127, 82, 255, 0.3)"/>
+          <text x="32" y="132" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#B388FF">GEMINI COGNITIVE EXTRACTION</text>
+          <text x="32" y="152" font-family="'Inter', sans-serif" font-size="12" fill="#E9D5FF">Key Rule: StateFlow is a state-holder observable flow for UI state sharing.</text>
+        </g>
       </g>
     </g>
 
-    <!-- Right Column (360px width) -->
-    <g id="pnlAICopilot" transform="translate(604, 0)">
-      <!-- AI Flashcard Generator Card -->
+    <!-- Right Column: Concept Mind-Map & Flashcards (364px width) -->
+    <g id="rightColumnLive" transform="translate(610, 0)">
+      
+      <!-- Generated Flashcard Card -->
       <g id="cardFlashcards">
-        <rect width="360" height="320" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="18" y="32" class="font-title">Generated Study Flashcards</text>
-        <rect x="270" y="16" width="74" height="22" rx="4" fill="rgba(127, 82, 255, 0.2)"/>
-        <text x="282" y="32" font-family="sans-serif" font-size="11" font-weight="bold" fill="#B388FF">3 New</text>
+        <rect width="364" height="280" rx="12" fill="url(#cardSurfaceLive)" stroke="url(#cardBorderLive)"/>
+        
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#F0F3F6">Extracted Study Cards</text>
+        <rect x="274" y="16" width="70" height="22" rx="4" fill="rgba(127, 82, 255, 0.15)"/>
+        <text x="284" y="31" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#B388FF">3 New</text>
 
-        <!-- Flashcard View -->
-        <g id="cardQuestion" transform="translate(18, 56)">
-          <rect width="324" height="180" rx="6" fill="#272B33" stroke="#373C47"/>
-          <text x="16" y="32" font-family="sans-serif" font-size="13" font-weight="bold" fill="#F0F3F6">Q: Why use StateFlow over LiveData?</text>
-          <text x="16" y="64" class="font-sub">A: StateFlow is pure Kotlin Multiplatform, making</text>
-          <text x="16" y="84" class="font-sub">it available in commonMain across Android, JavaFX</text>
-          <text x="16" y="104" class="font-sub">Desktop, and iOS without Android framework coupling.</text>
+        <!-- Flashcard Container -->
+        <g transform="translate(20, 56)">
+          <rect width="324" height="150" rx="8" fill="#181B23" stroke="#2A303D"/>
+          <text x="16" y="28" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#717886">SUPERMEMO SM-2 · BOX 1</text>
+          <text x="16" y="58" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#F0F3F6">Q: Why use StateFlow over LiveData?</text>
+          <text x="16" y="90" font-family="'Inter', sans-serif" font-size="11" fill="#9DA5B4">A: StateFlow is pure KMP (commonMain),</text>
+          <text x="16" y="108" font-family="'Inter', sans-serif" font-size="11" fill="#9DA5B4">usable in Android and JavaFX without coupling.</text>
         </g>
 
-        <!-- Actions -->
-        <g id="btnSaveCard" transform="translate(18, 256)">
-          <rect width="324" height="40" rx="6" fill="#7F52FF"/>
-          <text x="100" y="25" class="font-btn">+ Save to Study Deck</text>
+        <!-- Save Button -->
+        <g id="btnSaveCard" transform="translate(20, 220)">
+          <rect width="324" height="38" rx="8" fill="#7F52FF"/>
+          <text x="100" y="24" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFF">+ Add to Exam Deck</text>
         </g>
       </g>
 
-      <!-- Concept Mindmap Box -->
-      <g id="pnlMindMap" transform="translate(0, 344)">
-        <rect width="360" height="316" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="18" y="32" class="font-title">Concept Hierarchy (Mind Map)</text>
-        <g transform="translate(20, 60)">
-          <rect width="140" height="36" rx="4" fill="#252932" stroke="#3574F0"/>
-          <text x="16" y="23" font-family="monospace" font-size="12" fill="#90CAF9">CoroutineScope</text>
+      <!-- Concept Mind-Map Card with Real Curved Bezier Connectors -->
+      <g id="pnlMindMap" transform="translate(0, 296)">
+        <rect width="364" height="360" rx="12" fill="url(#cardSurfaceLive)" stroke="url(#cardBorderLive)"/>
+        
+        <text x="20" y="32" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#F0F3F6">Concept Mind Map</text>
+        <text x="20" y="48" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Hierarchical topic nodes extracted by Gemini</text>
 
-          <rect x="160" y="0" width="140" height="36" rx="4" fill="#252932" stroke="#3574F0"/>
-          <text x="176" y="23" font-family="monospace" font-size="12" fill="#90CAF9">SupervisorJob</text>
+        <!-- Nodes with Curved Bezier Connectors -->
+        <g id="mindmapCanvas" transform="translate(20, 70)">
+          <!-- Connectors -->
+          <path d="M162 40 C 162 70, 70 80, 70 110" stroke="#3574F0" stroke-width="2" fill="none"/>
+          <path d="M162 40 C 162 70, 250 80, 250 110" stroke="#7F52FF" stroke-width="2" fill="none"/>
+          <path d="M70 146 C 70 180, 70 180, 70 210" stroke="#3574F0" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
 
-          <rect x="0" y="56" width="150" height="36" rx="4" fill="#252932" stroke="#7F52FF"/>
-          <text x="16" y="79" font-family="monospace" font-size="12" fill="#B388FF">Dispatchers.JavaFx</text>
+          <!-- Root Node: KMP Concurrency -->
+          <g transform="translate(82, 10)">
+            <rect width="160" height="36" rx="8" fill="#202430" stroke="#3574F0" stroke-width="1.5"/>
+            <text x="20" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#90CAF9">KMP Concurrency</text>
+          </g>
+
+          <!-- Child Node 1: CoroutineScope -->
+          <g transform="translate(10, 110)">
+            <rect width="120" height="36" rx="8" fill="#1C212A" stroke="#2B3240"/>
+            <text x="14" y="23" font-family="'JetBrains Mono', monospace" font-size="11" fill="#E2E8F0">CoroutineScope</text>
+          </g>
+
+          <!-- Child Node 2: StateFlow -->
+          <g transform="translate(190, 110)">
+            <rect width="120" height="36" rx="8" fill="#231F30" stroke="#7F52FF"/>
+            <text x="24" y="23" font-family="'JetBrains Mono', monospace" font-size="11" fill="#E9D5FF">StateFlow</text>
+          </g>
+
+          <!-- Child Node 3: Dispatchers.JavaFx -->
+          <g transform="translate(0, 210)">
+            <rect width="140" height="36" rx="8" fill="#181B23" stroke="#2A303D"/>
+            <text x="10" y="23" font-family="'JetBrains Mono', monospace" font-size="10" fill="#9DA5B4">Dispatchers.JavaFx</text>
+          </g>
         </g>
       </g>
     </g>
