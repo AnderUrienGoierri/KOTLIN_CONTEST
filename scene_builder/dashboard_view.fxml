@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="700.0" prefWidth="980.0" spacing="24.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="24.0" left="28.0" right="28.0" top="24.0" />
+   </padding>
+   <children>
+      <!-- Page Header -->
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <VBox spacing="4.0">
+               <children>
+                  <Label styleClass="card-title" style="-fx-font-size: 20px;" text="Study &amp; Lecture Dashboard" />
+                  <Label styleClass="card-subtitle" text="Overview of recorded classes, AI processed notes, and spaced repetition progress." />
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" styleClass="btn-primary" text="+ Record New Lecture" />
+         </children>
+      </HBox>
+
+      <!-- Metric Cards Grid -->
+      <HBox spacing="16.0">
+         <children>
+            <!-- Metric 1 -->
+            <VBox prefWidth="220.0" spacing="8.0" styleClass="card-panel" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="card-subtitle" text="TOTAL LECTURES" />
+                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #F0F3F6;" text="28" />
+                  <Label style="-fx-text-fill: #28A745; -fx-font-size: 11px;" text="+3 this week" />
+               </children>
+            </VBox>
+
+            <!-- Metric 2 -->
+            <VBox prefWidth="220.0" spacing="8.0" styleClass="card-panel" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="card-subtitle" text="AI FLASHCARDS" />
+                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #B388FF;" text="142" />
+                  <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 11px;" text="87% mastery rate" />
+               </children>
+            </VBox>
+
+            <!-- Metric 3 -->
+            <VBox prefWidth="220.0" spacing="8.0" styleClass="card-panel" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="card-subtitle" text="AUDIO TRANSCRIBED" />
+                  <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #61AFEF;" text="41.5 hrs" />
+                  <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 11px;" text="Ktor WebSocket stream" />
+               </children>
+            </VBox>
+
+            <!-- Metric 4 -->
+            <VBox prefWidth="220.0" spacing="8.0" styleClass="card-panel" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label styleClass="card-subtitle" text="AI MODEL STATUS" />
+                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #28A745;" text="Gemini Online" />
+                  <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 11px;" text="Latency: 140ms" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+
+      <!-- Recent Lectures Table -->
+      <VBox spacing="12.0" styleClass="card-panel" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label styleClass="card-title" text="Recent Recorded Lectures" />
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" styleClass="btn-secondary" text="Filter by Subject" />
+               </children>
+            </HBox>
+
+            <TableView fx:id="lecturesTable" prefHeight="320.0" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn prefWidth="220.0" text="Subject / Topic" />
+                  <TableColumn prefWidth="140.0" text="Date" />
+                  <TableColumn prefWidth="100.0" text="Duration" />
+                  <TableColumn prefWidth="140.0" text="AI Processing" />
+                  <TableColumn prefWidth="120.0" text="Cards Generated" />
+                  <TableColumn prefWidth="140.0" text="Actions" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </children>
+</VBox>

@@ -1,0 +1,78 @@
+{
+  "name": "LectureSync-Design-Tokens",
+  "version": "1.0.0",
+  "description": "Professional JetBrains/Kotlin inspired design tokens for Figma and JavaFX",
+  "color": {
+    "background": {
+      "base": { "value": "#181A1F", "type": "color", "description": "Application canvas base" },
+      "surface": { "value": "#21252B", "type": "color", "description": "Cards and panels" },
+      "surface_hover": { "value": "#292D35", "type": "color", "description": "Interactive card hover" },
+      "surface_active": { "value": "#30353E", "type": "color", "description": "Interactive card pressed" },
+      "sidebar": { "value": "#14161A", "type": "color", "description": "Left navigation sidebar" }
+    },
+    "border": {
+      "subtle": { "value": "#2E333D", "type": "color", "description": "Card and divider borders" },
+      "focused": { "value": "#7F52FF", "type": "color", "description": "Focus ring border" }
+    },
+    "brand": {
+      "kotlin_purple": { "value": "#7F52FF", "type": "color", "description": "Primary Kotlin brand accent" },
+      "kotlin_violet_dark": { "value": "#683CE0", "type": "color", "description": "Primary button hover" },
+      "kotlin_pink": { "value": "#E040FB", "type": "color", "description": "Secondary gradient point" },
+      "jetbrains_blue": { "value": "#3574F0", "type": "color", "description": "Info and links" }
+    },
+    "text": {
+      "primary": { "value": "#F0F3F6", "type": "color", "description": "High-emphasis headings and body" },
+      "secondary": { "value": "#9DA5B4", "type": "color", "description": "Medium-emphasis captions and meta" },
+      "muted": { "value": "#5C6370", "type": "color", "description": "Disabled text and placeholders" },
+      "on_accent": { "value": "#FFFFFF", "type": "color", "description": "Text inside accent buttons" }
+    },
+    "feedback": {
+      "success": { "value": "#28A745", "type": "color" },
+      "warning": { "value": "#E5C07B", "type": "color" },
+      "error": { "value": "#E06C75", "type": "color" },
+      "info": { "value": "#61AFEF", "type": "color" }
+    }
+  },
+  "typography": {
+    "font_family": {
+      "sans": { "value": "'Inter', 'Segoe UI', -apple-system, sans-serif" },
+      "mono": { "value": "'JetBrains Mono', 'Consolas', monospace" }
+    },
+    "size": {
+      "xs": { "value": "11px" },
+      "sm": { "value": "13px" },
+      "md": { "value": "14px" },
+      "lg": { "value": "16px" },
+      "xl": { "value": "20px" },
+      "2xl": { "value": "24px" },
+      "3xl": { "value": "30px" }
+    },
+    "weight": {
+      "regular": { "value": 400 },
+      "medium": { "value": 500 },
+      "semibold": { "value": 600 },
+      "bold": { "value": 700 }
+    }
+  },
+  "spacing": {
+    "2xs": { "value": "4px" },
+    "xs": { "value": "8px" },
+    "sm": { "value": "12px" },
+    "md": { "value": "16px" },
+    "lg": { "value": "24px" },
+    "xl": { "value": "32px" },
+    "2xl": { "value": "48px" }
+  },
+  "radius": {
+    "xs": { "value": "4px" },
+    "sm": { "value": "6px" },
+    "md": { "value": "8px" },
+    "lg": { "value": "12px" },
+    "full": { "value": "9999px" }
+  },
+  "shadow": {
+    "subtle": { "value": "0 2px 4px rgba(0, 0, 0, 0.2)" },
+    "card": { "value": "0 4px 12px rgba(0, 0, 0, 0.3)" },
+    "modal": { "value": "0 12px 32px rgba(0, 0, 0, 0.45)" }
+  }
+}

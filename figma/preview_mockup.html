@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LectureSync AI - Interactive UI Preview (Kotlin Contest 2027)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #181A1F;
+      --bg-surface: #21252B;
+      --bg-surface-hover: #292D35;
+      --bg-sidebar: #14161A;
+      --border-subtle: #2E333D;
+      --border-focused: #7F52FF;
+      --brand-primary: #7F52FF;
+      --brand-primary-hover: #683CE0;
+      --brand-blue: #3574F0;
+      --brand-pink: #E040FB;
+      --text-primary: #F0F3F6;
+      --text-secondary: #9DA5B4;
+      --text-muted: #5C6370;
+      --accent-green: #28A745;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      background-color: var(--bg-sidebar);
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      padding: 24px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-pink));
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: white;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      background-color: var(--bg-surface-hover);
+      color: var(--text-primary);
+    }
+
+    .nav-item.active {
+      background: rgba(127, 82, 255, 0.15);
+      color: #B388FF;
+      border-left: 3px solid var(--brand-primary);
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .sync-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .sync-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-green);
+      box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+    }
+
+    /* Main Area */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .topbar {
+      height: 64px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background-color: var(--bg-base);
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .breadcrumbs span.current {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .search-box {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-primary);
+      width: 240px;
+    }
+
+    .search-box:focus {
+      outline: none;
+      border-color: var(--brand-primary);
+    }
+
+    .btn-primary {
+      background: var(--brand-primary);
+      color: white;
+      border: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-primary-hover);
+    }
+
+    /* Content Area */
+    .content {
+      flex: 1;
+      padding: 24px 28px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1.6fr 1.2fr;
+      gap: 24px;
+    }
+
+    .card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .badge {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+      background: rgba(127, 82, 255, 0.15);
+      color: #B388FF;
+      border: 1px solid rgba(127, 82, 255, 0.3);
+    }
+
+    .badge-live {
+      background: rgba(224, 108, 117, 0.15);
+      color: #E06C75;
+      border-color: rgba(224, 108, 117, 0.3);
+    }
+
+    /* Audio visualizer bar */
+    .waveform-sim {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 8px;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-sm);
+    }
+
+    .waveform-bar {
+      flex: 1;
+      background-color: var(--brand-primary);
+      border-radius: 2px;
+      min-height: 4px;
+    }
+
+    /* Transcript block */
+    .transcript-box {
+      background-color: #1A1D23;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #D1D5DB;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .transcript-box mark {
+      background-color: rgba(127, 82, 255, 0.25);
+      color: #E2D9FC;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    .flashcard {
+      background: linear-gradient(145deg, #272B33, #21252B);
+      border: 1px solid #373C47;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flashcard-q {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-primary);
+    }
+
+    .flashcard-a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      border-top: 1px dashed var(--border-subtle);
+      padding-top: 10px;
+    }
+
+    .mindmap-node {
+      background: #252932;
+      border: 1px solid var(--brand-blue);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: #90CAF9;
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">K</div>
+      <div>
+        <div class="brand-title">LectureSync AI</div>
+        <div class="brand-subtitle">KotlinConf '27 Edition</div>
+      </div>
+    </div>
+
+    <ul class="nav-list">
+      <li class="nav-item active">Dashboard</li>
+      <li class="nav-item">Live Lecture Studio</li>
+      <li class="nav-item">Flashcards & Spaced Repetition</li>
+      <li class="nav-item">Concept Mind Maps</li>
+      <li class="nav-item">Class Audio & Recordings</li>
+      <li class="nav-item">Settings & AI Models</li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <div class="sync-status">
+        <span class="sync-indicator"></span>
+        <span>Android (Pixel 8) Connected</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main View -->
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumbs">
+        <span>Workspace</span> /
+        <span>Distributed Systems</span> /
+        <span class="current">Kotlin Multiplatform Coroutines (Lecture 04)</span>
+      </div>
+      <div class="top-actions">
+        <input type="text" class="search-box" placeholder="Search concepts, tags, AI notes...">
+        <button class="btn-primary">
+          <span>+</span>
+          <span>Start Live Session</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- Left Column: Audio and Live Transcript -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Live Audio Stream & Real-time Transcription</div>
+              <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Source: Mobile Studio Microphone via Local KMP WebSocket</div>
+            </div>
+            <span class="badge badge-live">● REC 00:34:12</span>
+          </div>
+
+          <div class="waveform-sim">
+            <div class="waveform-bar" style="height: 18px;"></div>
+            <div class="waveform-bar" style="height: 32px;"></div>
+            <div class="waveform-bar" style="height: 14px;"></div>
+            <div class="waveform-bar" style="height: 44px;"></div>
+            <div class="waveform-bar" style="height: 28px;"></div>
+            <div class="waveform-bar" style="height: 38px;"></div>
+            <div class="waveform-bar" style="height: 20px;"></div>
+            <div class="waveform-bar" style="height: 48px;"></div>
+            <div class="waveform-bar" style="height: 24px;"></div>
+            <div class="waveform-bar" style="height: 36px;"></div>
+            <div class="waveform-bar" style="height: 16px;"></div>
+            <div class="waveform-bar" style="height: 40px;"></div>
+            <div class="waveform-bar" style="height: 26px;"></div>
+            <div class="waveform-bar" style="height: 30px;"></div>
+            <div class="waveform-bar" style="height: 12px;"></div>
+          </div>
+
+          <div class="transcript-box">
+            <p><strong>[Prof. Martinez - 10:14 AM]</strong>: "When we dispatch asynchronous tasks in <mark>Kotlin Multiplatform</mark>, we rely on structured concurrency. If the parent scope cancels, all child coroutines terminate cooperatively..."</p>
+            <br>
+            <p><strong>[AI Live Note]</strong>: Key takeaway detected: <em>Dispatchers.IO vs Dispatchers.Default</em> differences across JVM Desktop and Android Native runtimes.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">AI Generated Concept Nodes (Mind Map)</div>
+            <span class="badge">Gemini Flash 2.5</span>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <div class="mindmap-node">CoroutineScope</div>
+            <div class="mindmap-node">SupervisorJob()</div>
+            <div class="mindmap-node">Dispatchers.Main (JavaFX)</div>
+            <div class="mindmap-node">StateFlow & SharedFlow</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Flashcards & AI Assistant -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Generated Study Flashcards</div>
+            <span class="badge">3 New Cards</span>
+          </div>
+
+          <div class="flashcard">
+            <div class="flashcard-q">Q: What guarantees cooperative cancellation in Kotlin coroutines?</div>
+            <div class="flashcard-a">A: Routines regularly yield execution or check <code>isActive</code> before continuing heavy computations.</div>
+          </div>
+
+          <div class="flashcard">
+            <div class="flashcard-q">Q: How does JavaFX dispatch UI updates from background coroutines?</div>
+            <div class="flashcard-a">A: Using <code>Dispatchers.JavaFx</code> from <code>kotlinx-coroutines-javafx</code> to schedule on the JavaFX Application Thread.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Ask Gemini Copilot</div>
+            <span class="badge">Multiplatform Context</span>
+          </div>
+          <div style="font-size: 13px; color: var(--text-secondary);">
+            Ask any question about today's whiteboard captures or audio transcript:
+          </div>
+          <input type="text" class="search-box" style="width: 100%;" placeholder="e.g. Summarize the concurrency rules explained at minute 15...">
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

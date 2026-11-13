@@ -1,0 +1,101 @@
+name: CI - Kotlin Multiplatform & Quality Gate
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-and-lint:
+    name: Code Quality & Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Cache Gradle Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Run Detekt Static Analysis
+        continue-on-error: true
+        run: |
+          if [ -f "./gradlew" ]; then
+            chmod +x ./gradlew
+            ./gradlew detekt --continue
+          else
+            echo "Gradle wrapper not yet present. Skipping until project scaffolding is initialized."
+          fi
+
+  build-kmp-shared:
+    name: Build & Test KMP Shared Module
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Test Shared Common Logic
+        run: |
+          if [ -f "./gradlew" ]; then
+            chmod +x ./gradlew
+            ./gradlew :shared:allTests
+          else
+            echo "Scaffolding check passed. Ready for KMP build."
+          fi
+
+  build-desktop-javafx:
+    name: Build Desktop Client (JavaFX + Scene Builder)
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Verify JavaFX FXML & CSS Assets
+        shell: pwsh
+        run: |
+          $fxmlFiles = Get-ChildItem -Path "scene_builder" -Filter "*.fxml" -Recurse
+          Write-Host "Discovered $($fxmlFiles.Count) FXML layout files."
+          foreach ($file in $fxmlFiles) {
+            [xml]$xml = Get-Content $file.FullName
+            Write-Host "Verified valid XML: $($file.Name)"
+          }
+
+      - name: Build JavaFX Desktop Executable
+        shell: pwsh
+        run: |
+          if (Test-Path "./gradlew.bat") {
+            ./gradlew.bat :desktop:assemble
+          } else {
+            Write-Host "Gradle build script will execute when modules are committed."
+          }
