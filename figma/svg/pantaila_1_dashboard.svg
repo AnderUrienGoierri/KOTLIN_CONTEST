@@ -1,153 +1,288 @@
 <svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Background Gradient -->
+    <linearGradient id="bgCanvasGrad" x1="0" y1="0" x2="1280" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0E1015"/>
+      <stop offset="50%" stop-color="#14171E"/>
+      <stop offset="100%" stop-color="#0D0F13"/>
+    </linearGradient>
+
+    <!-- Brand Purple Gradient -->
+    <linearGradient id="brandLinear" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7F52FF"/>
+      <stop offset="50%" stop-color="#9C27B0"/>
       <stop offset="100%" stop-color="#E040FB"/>
     </linearGradient>
-    <style>
-      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #F0F3F6; }
-      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
-      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; }
-      .font-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #61AFEF; }
-    </style>
+
+    <!-- Card Glass Border Gradient -->
+    <linearGradient id="cardBorderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.16)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.03)"/>
+    </linearGradient>
+
+    <!-- Card Surface Gradient -->
+    <linearGradient id="cardSurfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E222B"/>
+      <stop offset="100%" stop-color="#161920"/>
+    </linearGradient>
+
+    <!-- Sparkline Gradient -->
+    <linearGradient id="sparklineGrad" x1="0" y1="0" x2="0" y2="40">
+      <stop offset="0%" stop-color="rgba(127, 82, 255, 0.4)"/>
+      <stop offset="100%" stop-color="rgba(127, 82, 255, 0.0)"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
 
   <!-- Background Base -->
-  <rect id="bgBase" width="1280" height="800" fill="#181A1F"/>
+  <rect id="bgBase" width="1280" height="800" fill="url(#bgCanvasGrad)"/>
 
-  <!-- Left Sidebar -->
+  <!-- Left Sidebar (Linear/JetBrains Style) -->
   <g id="sidebarContainer">
-    <rect width="260" height="800" fill="#14161A" stroke="#2E333D" stroke-width="1"/>
+    <rect width="250" height="800" fill="#111317" stroke="#1F232B" stroke-width="1"/>
     
-    <!-- Brand Logo and Title -->
-    <g id="brandHeader" transform="translate(20, 24)">
-      <rect width="32" height="32" rx="6" fill="url(#brandGrad)"/>
-      <text x="11" y="22" font-family="sans-serif" font-weight="bold" font-size="16" fill="#FFF">K</text>
-      <text x="44" y="16" class="font-title">LectureSync AI</text>
-      <text x="44" y="30" class="font-sub">KotlinConf '27 Edition</text>
+    <!-- Brand / Workspace Switcher -->
+    <g id="brandHeader" transform="translate(18, 20)">
+      <rect width="36" height="36" rx="10" fill="url(#brandLinear)" filter="url(#glowPurple)"/>
+      <path d="M14 11L22 18L14 25" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="48" y="18" font-family="'Inter', -apple-system, sans-serif" font-size="14" font-weight="700" fill="#F0F3F6">LectureSync</text>
+      <rect x="135" y="6" width="34" height="18" rx="4" fill="rgba(127, 82, 255, 0.2)"/>
+      <text x="142" y="19" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#B388FF">AI</text>
+      <text x="48" y="32" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Goierri · 2MG3</text>
     </g>
 
-    <!-- Navigation Buttons -->
-    <g id="navGroup" transform="translate(12, 90)">
-      <!-- Active Item: Dashboard -->
-      <g id="btnNavDashboard" transform="translate(0, 0)">
-        <rect width="236" height="40" rx="6" fill="rgba(127, 82, 255, 0.15)"/>
-        <rect width="4" height="40" fill="#7F52FF"/>
-        <text x="18" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#B388FF">Dashboard</text>
+    <!-- Search / Quick Switcher -->
+    <g id="sidebarSearch" transform="translate(14, 76)">
+      <rect width="222" height="32" rx="6" fill="#171A21" stroke="#252A35"/>
+      <circle cx="16" cy="16" r="4.5" stroke="#717886" stroke-width="1.5"/>
+      <path d="M20 20L24 24" stroke="#717886" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="32" y="20" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Quick search (⌘K)...</text>
+      <rect x="186" y="8" width="24" height="16" rx="3" fill="#222631"/>
+      <text x="190" y="19" font-family="sans-serif" font-size="9" font-weight="600" fill="#9DA5B4">⌘K</text>
+    </g>
+
+    <!-- Navigation Section: Workspace -->
+    <g id="navGroup" transform="translate(14, 126)">
+      <text x="8" y="10" font-family="'Inter', sans-serif" font-size="10" font-weight="700" letter-spacing="0.8" fill="#505663">WORKSPACE</text>
+
+      <!-- Active: Dashboard -->
+      <g id="btnNavDashboard" transform="translate(0, 20)">
+        <rect width="222" height="36" rx="8" fill="rgba(127, 82, 255, 0.12)" stroke="rgba(127, 82, 255, 0.25)"/>
+        <rect x="0" y="8" width="3" height="20" rx="1.5" fill="#7F52FF"/>
+        <path d="M16 13H22V19H16V13ZM24 13H30V19H24V13ZM16 21H22V27H16V21ZM24 21H30V27H24V21Z" fill="#B388FF"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Dashboard</text>
       </g>
-      <!-- Nav Item: Live Lecture -->
-      <g id="btnNavLive" transform="translate(0, 48)">
-        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Live Lecture Studio</text>
+
+      <!-- Nav: Live Studio -->
+      <g id="btnNavLive" transform="translate(0, 62)">
+        <path d="M18 12C15.8 12 14 13.8 14 16V22C14 24.2 15.8 26 18 26C20.2 26 22 24.2 22 22V16C22 13.8 20.2 12 18 12Z" stroke="#8A92A2" stroke-width="1.8"/>
+        <path d="M11 20C11 23.9 14.1 27 18 27C21.9 27 25 23.9 25 20" stroke="#8A92A2" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Live Studio</text>
+        <circle cx="206" cy="18" r="3" fill="#E06C75"/>
       </g>
-      <!-- Nav Item: Flashcards -->
-      <g id="btnNavFlashcards" transform="translate(0, 96)">
-        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Flashcards &amp; Quizzes</text>
+
+      <!-- Nav: Flashcards -->
+      <g id="btnNavFlashcards" transform="translate(0, 102)">
+        <rect x="14" y="14" width="14" height="14" rx="3" stroke="#8A92A2" stroke-width="1.8"/>
+        <path d="M18 10H24C25.1 10 26 10.9 26 12V18" stroke="#8A92A2" stroke-width="1.8"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Flashcards &amp; Quizzes</text>
       </g>
-      <!-- Nav Item: Mind Maps -->
-      <g id="btnNavMindMaps" transform="translate(0, 144)">
-        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Concept Mind Maps</text>
+
+      <!-- Nav: Mind Maps -->
+      <g id="btnNavMindMaps" transform="translate(0, 142)">
+        <circle cx="16" cy="20" r="2.5" stroke="#8A92A2" stroke-width="1.8"/>
+        <circle cx="26" cy="14" r="2.5" stroke="#8A92A2" stroke-width="1.8"/>
+        <circle cx="26" cy="26" r="2.5" stroke="#8A92A2" stroke-width="1.8"/>
+        <path d="M18.5 18.5L23.5 15.5M18.5 21.5L23.5 24.5" stroke="#8A92A2" stroke-width="1.5"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">Concept Maps</text>
       </g>
-      <!-- Nav Item: Settings -->
-      <g id="btnNavSettings" transform="translate(0, 192)">
-        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Settings &amp; AI Config</text>
+
+      <!-- Nav: Settings -->
+      <g id="btnNavSettings" transform="translate(0, 182)">
+        <circle cx="20" cy="20" r="3" stroke="#8A92A2" stroke-width="1.8"/>
+        <path d="M20 12V14M20 26V28M12 20H14M26 20H28" stroke="#8A92A2" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="38" y="23" font-family="'Inter', sans-serif" font-size="13" fill="#8A92A2">AI Preferences</text>
       </g>
     </g>
 
-    <!-- Sidebar Footer Sync Status -->
-    <g id="syncStatusBadge" transform="translate(16, 740)">
-      <rect width="228" height="36" rx="6" fill="#21252B" stroke="#2E333D"/>
-      <circle cx="16" cy="18" r="4" fill="#28A745"/>
-      <text x="28" y="22" font-family="sans-serif" font-size="11" fill="#9DA5B4">Android Pixel 8 Synced</text>
+    <!-- Sidebar Footer User Profile -->
+    <g id="sidebarFooter" transform="translate(14, 730)">
+      <rect width="222" height="52" rx="10" fill="#16181F" stroke="#232731"/>
+      <!-- User Avatar -->
+      <circle cx="26" cy="26" r="16" fill="url(#brandLinear)"/>
+      <text x="21" y="31" font-family="sans-serif" font-size="13" font-weight="bold" fill="#FFF">A</text>
+      <circle cx="36" cy="36" r="4" fill="#22C55E" stroke="#16181F" stroke-width="2"/>
+      
+      <text x="50" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#F0F3F6">Ander Urien</text>
+      <text x="50" y="37" font-family="'Inter', sans-serif" font-size="10" fill="#717886">Pixel 8 Pro Connected</text>
     </g>
   </g>
 
-  <!-- Top Action Bar -->
-  <g id="topBar" transform="translate(260, 0)">
-    <rect width="1020" height="64" fill="#181A1F" stroke="#2E333D" stroke-width="1"/>
-    <text x="28" y="37" font-family="sans-serif" font-size="13" fill="#9DA5B4">Workspaces / Distributed Systems / <tspan font-weight="bold" fill="#F0F3F6">Dashboard Overview</tspan></text>
+  <!-- Top Navigation & Action Header -->
+  <g id="topBar" transform="translate(250, 0)">
+    <rect width="1030" height="64" fill="#111317" stroke="#1F232B" stroke-width="1"/>
     
-    <!-- Search Input -->
-    <g id="txtSearch" transform="translate(560, 14)">
-      <rect width="260" height="36" rx="6" fill="#21252B" stroke="#2E333D"/>
-      <text x="14" y="22" class="font-sub">Search lectures, flashcards, AI...</text>
+    <!-- Breadcrumb with Pill -->
+    <g transform="translate(28, 22)">
+      <text font-family="'Inter', sans-serif" font-size="13" fill="#717886">Workspaces</text>
+      <text x="76" y="0" font-family="'Inter', sans-serif" font-size="13" fill="#4B5262">/</text>
+      <text x="88" y="0" font-family="'Inter', sans-serif" font-size="13" fill="#717886">Distributed Systems</text>
+      <text x="212" y="0" font-family="'Inter', sans-serif" font-size="13" fill="#4B5262">/</text>
+      <text x="224" y="0" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#F0F3F6">Dashboard Overview</text>
     </g>
 
-    <!-- Primary Action Button -->
-    <g id="btnNewLecture" transform="translate(840, 14)">
-      <rect width="150" height="36" rx="6" fill="#7F52FF"/>
-      <text x="18" y="23" class="font-btn">+ Start Session</text>
+    <!-- Top Right Actions -->
+    <g id="topActions" transform="translate(740, 14)">
+      <!-- Search Input -->
+      <g id="txtSearch">
+        <rect width="140" height="36" rx="8" fill="#171A21" stroke="#252A35"/>
+        <text x="14" y="23" font-family="'Inter', sans-serif" font-size="12" fill="#717886">Filter classes...</text>
+      </g>
+      <!-- New Lecture CTA Button (Linear style with subtle top border highlight) -->
+      <g id="btnNewLecture" transform="translate(152, 0)">
+        <rect width="124" height="36" rx="8" fill="#7F52FF"/>
+        <path d="M16 18H24M20 14V22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+        <text x="32" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">New Session</text>
+      </g>
     </g>
   </g>
 
-  <!-- Main Content Body -->
-  <g id="mainContent" transform="translate(288, 88)">
-    <!-- Metrics Row -->
-    <g id="cardMetrics">
-      <!-- Metric 1 -->
-      <g id="metricTotalLectures" transform="translate(0, 0)">
-        <rect width="220" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="16" y="28" class="font-sub">TOTAL LECTURES</text>
-        <text x="16" y="64" font-family="sans-serif" font-size="28" font-weight="bold" fill="#F0F3F6">28</text>
-        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#28A745">+3 recorded this week</text>
-      </g>
-      <!-- Metric 2 -->
-      <g id="metricFlashcards" transform="translate(244, 0)">
-        <rect width="220" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="16" y="28" class="font-sub">AI FLASHCARDS</text>
-        <text x="16" y="64" font-family="sans-serif" font-size="28" font-weight="bold" fill="#B388FF">142</text>
-        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#9DA5B4">87% mastery rate</text>
-      </g>
-      <!-- Metric 3 -->
-      <g id="metricAudioHours" transform="translate(488, 0)">
-        <rect width="220" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="16" y="28" class="font-sub">AUDIO TRANSCRIBED</text>
-        <text x="16" y="64" font-family="sans-serif" font-size="28" font-weight="bold" fill="#61AFEF">41.5 h</text>
-        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#9DA5B4">WebSocket Ktor Stream</text>
-      </g>
-      <!-- Metric 4 -->
-      <g id="metricAIStatus" transform="translate(732, 0)">
-        <rect width="232" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
-        <text x="16" y="28" class="font-sub">AI MODEL ENGINE</text>
-        <text x="16" y="60" font-family="sans-serif" font-size="20" font-weight="bold" fill="#28A745">Gemini 2.5</text>
-        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#9DA5B4">API Status: Connected</text>
+  <!-- Main Canvas Content Area -->
+  <g id="mainContent" transform="translate(278, 84)">
+    
+    <!-- Welcome AI Insight Banner -->
+    <g id="bannerWelcome" transform="translate(0, 0)">
+      <rect width="974" height="76" rx="12" fill="url(#cardSurfaceGrad)" stroke="url(#cardBorderGrad)"/>
+      <circle cx="36" cy="38" r="18" fill="rgba(127, 82, 255, 0.2)"/>
+      <path d="M36 28L38 34L44 36L38 38L36 44L34 38L28 36L34 34L36 28Z" fill="#B388FF"/>
+      
+      <text x="68" y="32" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#F0F3F6">Good morning Ander, your AI Study Assistant is in sync.</text>
+      <text x="68" y="52" font-family="'Inter', sans-serif" font-size="12" fill="#8A92A2">Gemini 2.5 extracted 14 exam flashcards and 1 mind-map from yesterday's Concurrency lecture.</text>
+      
+      <!-- CTA Button in Banner -->
+      <g transform="translate(820, 20)">
+        <rect width="134" height="36" rx="6" fill="#252934" stroke="#373D4D"/>
+        <text x="18" y="23" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#F0F3F6">Review Flashcards</text>
       </g>
     </g>
 
-    <!-- Table Card Panel -->
-    <g id="tblLectures" transform="translate(0, 128)">
-      <rect width="964" height="540" rx="8" fill="#21252B" stroke="#2E333D"/>
-      <text x="20" y="36" class="font-title">Recent Recorded Lectures</text>
+    <!-- 4 High-Tech KPI Metric Cards with Micro-Sparklines -->
+    <g id="cardMetrics" transform="translate(0, 92)">
+      <!-- KPI 1 -->
+      <g id="kpiTotalLectures" transform="translate(0, 0)">
+        <rect width="232" height="110" rx="12" fill="url(#cardSurfaceGrad)" stroke="url(#cardBorderGrad)"/>
+        <text x="18" y="26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#717886">RECORDED CLASSES</text>
+        <text x="18" y="66" font-family="'Inter', sans-serif" font-size="32" font-weight="800" fill="#F0F3F6">28</text>
+        <rect x="18" y="78" width="60" height="20" rx="4" fill="rgba(34, 197, 94, 0.15)"/>
+        <text x="24" y="92" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#22C55E">↑ 12% wk</text>
+        <!-- Sparkline -->
+        <path d="M150 75 Q165 60 180 70 T210 50" fill="none" stroke="#22C55E" stroke-width="2"/>
+      </g>
 
-      <!-- Table Header -->
-      <g id="tableHeader" transform="translate(20, 56)">
-        <rect width="924" height="32" fill="#1A1D23" rx="4"/>
-        <text x="16" y="21" class="font-sub">TITLE &amp; TOPIC</text>
-        <text x="320" y="21" class="font-sub">SUBJECT</text>
-        <text x="500" y="21" class="font-sub">DURATION</text>
-        <text x="640" y="21" class="font-sub">AI STATUS</text>
-        <text x="800" y="21" class="font-sub">ACTIONS</text>
+      <!-- KPI 2 -->
+      <g id="kpiFlashcards" transform="translate(247, 0)">
+        <rect width="232" height="110" rx="12" fill="url(#cardSurfaceGrad)" stroke="url(#cardBorderGrad)"/>
+        <text x="18" y="26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#717886">AI FLASHCARDS</text>
+        <text x="18" y="66" font-family="'Inter', sans-serif" font-size="32" font-weight="800" fill="#B388FF">142</text>
+        <rect x="18" y="78" width="88" height="20" rx="4" fill="rgba(127, 82, 255, 0.15)"/>
+        <text x="24" y="92" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#B388FF">SM-2 Optimized</text>
+        <!-- Sparkline -->
+        <path d="M150 70 Q165 80 180 60 T210 45" fill="none" stroke="#7F52FF" stroke-width="2"/>
+      </g>
+
+      <!-- KPI 3 -->
+      <g id="kpiAudioHours" transform="translate(494, 0)">
+        <rect width="232" height="110" rx="12" fill="url(#cardSurfaceGrad)" stroke="url(#cardBorderGrad)"/>
+        <text x="18" y="26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#717886">AUDIO TRANSCRIBED</text>
+        <text x="18" y="66" font-family="'Inter', sans-serif" font-size="32" font-weight="800" fill="#38BDF8">41.5 h</text>
+        <rect x="18" y="78" width="94" height="20" rx="4" fill="rgba(56, 189, 248, 0.15)"/>
+        <text x="24" y="92" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#38BDF8">Ktor WebSocket</text>
+        <!-- Sparkline -->
+        <path d="M150 65 Q170 55 190 60 T210 48" fill="none" stroke="#38BDF8" stroke-width="2"/>
+      </g>
+
+      <!-- KPI 4 -->
+      <g id="kpiModelStatus" transform="translate(741, 0)">
+        <rect width="233" height="110" rx="12" fill="url(#cardSurfaceGrad)" stroke="url(#cardBorderGrad)"/>
+        <text x="18" y="26" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#717886">AI COGNITIVE ENGINE</text>
+        <text x="18" y="64" font-family="'Inter', sans-serif" font-size="22" font-weight="800" fill="#F0F3F6">Gemini 2.5</text>
+        <rect x="18" y="78" width="82" height="20" rx="4" fill="rgba(34, 197, 94, 0.15)"/>
+        <circle cx="28" cy="88" r="3" fill="#22C55E"/>
+        <text x="36" y="92" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#22C55E">140ms Latency</text>
+      </g>
+    </g>
+
+    <!-- State of the Art Data Table (JetBrains/Linear style) -->
+    <g id="tblLectures" transform="translate(0, 218)">
+      <rect width="974" height="470" rx="12" fill="url(#cardSurfaceGrad)" stroke="url(#cardBorderGrad)"/>
+      
+      <!-- Table Top Controls -->
+      <g transform="translate(20, 16)">
+        <text y="18" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#F0F3F6">Recorded Lectures &amp; Study Sessions</text>
+        <text y="36" font-family="'Inter', sans-serif" font-size="12" fill="#717886">Synced between Kotlin Multiplatform local SQLite and Android clients</text>
+      </g>
+
+      <!-- Table Header Bar -->
+      <g id="tableHeader" transform="translate(20, 68)">
+        <rect width="934" height="36" rx="6" fill="#13151B"/>
+        <text x="16" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#505663">TOPIC / TITLE</text>
+        <text x="330" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#505663">SUBJECT</text>
+        <text x="500" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#505663">DURATION</text>
+        <text x="640" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#505663">AI FLASHCARDS</text>
+        <text x="820" y="22" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="0.5" fill="#505663">ACTIONS</text>
       </g>
 
       <!-- Row 1 -->
-      <g id="row1" transform="translate(20, 98)">
-        <rect width="924" height="48" fill="#242830" rx="4"/>
-        <text x="16" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#F0F3F6">Kotlin Multiplatform Concurrency</text>
-        <text x="320" y="28" class="font-sub">Distributed Systems</text>
-        <text x="500" y="28" class="font-sub">01:14:20</text>
-        <text x="640" y="28" font-family="sans-serif" font-size="12" fill="#28A745">Ready (14 Cards)</text>
-        <rect x="800" y="10" width="70" height="28" rx="4" fill="#30353E"/>
-        <text x="814" y="28" font-family="sans-serif" font-size="11" fill="#FFF">Review</text>
+      <g id="row1" transform="translate(20, 112)">
+        <rect width="934" height="52" rx="8" fill="#181B23" stroke="#252A35"/>
+        <circle cx="28" cy="26" r="10" fill="rgba(127, 82, 255, 0.2)"/>
+        <path d="M26 22L32 26L26 30V22Z" fill="#B388FF"/>
+        <text x="48" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#F0F3F6">Kotlin Multiplatform Concurrency &amp; StateFlow</text>
+        <text x="48" y="38" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Today, 10:14 AM · Prof. Martinez</text>
+
+        <rect x="330" y="16" width="124" height="22" rx="4" fill="#202430"/>
+        <text x="338" y="31" font-family="'Inter', sans-serif" font-size="11" fill="#B0B8C8">Distributed Systems</text>
+
+        <text x="500" y="31" font-family="'JetBrains Mono', monospace" font-size="12" fill="#8A92A2">01:14:20</text>
+
+        <!-- Flashcards pill with green dot -->
+        <rect x="640" y="15" width="112" height="24" rx="6" fill="rgba(34, 197, 94, 0.12)" stroke="rgba(34, 197, 94, 0.25)"/>
+        <circle cx="652" cy="27" r="3" fill="#22C55E"/>
+        <text x="662" y="31" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#22C55E">14 Cards Ready</text>
+
+        <!-- Action Button -->
+        <g transform="translate(820, 13)">
+          <rect width="84" height="28" rx="6" fill="#7F52FF"/>
+          <text x="18" y="19" font-family="'Inter', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Study Now</text>
+        </g>
       </g>
 
       <!-- Row 2 -->
-      <g id="row2" transform="translate(20, 154)">
-        <rect width="924" height="48" fill="#21252B" rx="4"/>
-        <text x="16" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#F0F3F6">JavaFX MVC Architecture &amp; FXML</text>
-        <text x="320" y="28" class="font-sub">Desktop Development</text>
-        <text x="500" y="28" class="font-sub">00:54:10</text>
-        <text x="640" y="28" font-family="sans-serif" font-size="12" fill="#28A745">Ready (8 Cards)</text>
-        <rect x="800" y="10" width="70" height="28" rx="4" fill="#30353E"/>
-        <text x="814" y="28" font-family="sans-serif" font-size="11" fill="#FFF">Review</text>
+      <g id="row2" transform="translate(20, 172)">
+        <rect width="934" height="52" rx="8" fill="#14161E" stroke="#1F232B"/>
+        <circle cx="28" cy="26" r="10" fill="rgba(56, 189, 248, 0.15)"/>
+        <path d="M26 22L32 26L26 30V22Z" fill="#38BDF8"/>
+        <text x="48" y="24" font-family="'Inter', sans-serif" font-size="13" font-weight="600" fill="#F0F3F6">JavaFX MVC Architecture &amp; Scene Builder FXML</text>
+        <text x="48" y="38" font-family="'Inter', sans-serif" font-size="11" fill="#717886">Yesterday, 09:00 AM · Prof. Telleria</text>
+
+        <rect x="330" y="16" width="138" height="22" rx="4" fill="#202430"/>
+        <text x="338" y="31" font-family="'Inter', sans-serif" font-size="11" fill="#B0B8C8">Desktop Development</text>
+
+        <text x="500" y="31" font-family="'JetBrains Mono', monospace" font-size="12" fill="#8A92A2">00:54:10</text>
+
+        <rect x="640" y="15" width="108" height="24" rx="6" fill="rgba(127, 82, 255, 0.12)" stroke="rgba(127, 82, 255, 0.25)"/>
+        <circle cx="652" cy="27" r="3" fill="#B388FF"/>
+        <text x="662" y="31" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#B388FF">8 Cards Ready</text>
+
+        <g transform="translate(820, 13)">
+          <rect width="84" height="28" rx="6" fill="#252A36" stroke="#363C4C"/>
+          <text x="18" y="19" font-family="'Inter', sans-serif" font-size="11" font-weight="600" fill="#F0F3F6">Review (8)</text>
+        </g>
       </g>
     </g>
   </g>
