@@ -131,7 +131,12 @@ fun LectureSyncMobileApp() {
                     selected = currentTab == MobileTab.STUDY,
                     onClick = { currentTab = MobileTab.STUDY },
                     icon = {
-                        Text("🗂", fontSize = 16.sp)
+                        Box(
+                            modifier = Modifier
+                                .size(10.dp)
+                                .clip(RoundedCornerShape(2.dp))
+                                .background(if (currentTab == MobileTab.STUDY) KotlinPurple else Color(0xFF8A92A2))
+                        )
                     },
                     label = { Text("Study SM-2", fontSize = 11.sp, fontWeight = FontWeight.SemiBold) },
                     colors = NavigationBarItemDefaults.colors(
@@ -145,7 +150,12 @@ fun LectureSyncMobileApp() {
                     selected = currentTab == MobileTab.ARCHIVE,
                     onClick = { currentTab = MobileTab.ARCHIVE },
                     icon = {
-                        Text("🎧", fontSize = 16.sp)
+                        Box(
+                            modifier = Modifier
+                                .size(10.dp)
+                                .clip(CircleShape)
+                                .background(if (currentTab == MobileTab.ARCHIVE) KotlinPurple else Color(0xFF8A92A2))
+                        )
                     },
                     label = { Text("Archive", fontSize = 11.sp, fontWeight = FontWeight.SemiBold) },
                     colors = NavigationBarItemDefaults.colors(
@@ -645,7 +655,20 @@ fun StudyTabScreen(
                 .padding(14.dp)
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("🔥", fontSize = 20.sp)
+                Box(
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clip(CircleShape)
+                        .background(KotlinPurple.copy(alpha = 0.2f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(10.dp)
+                            .clip(CircleShape)
+                            .background(KotlinPurpleLight)
+                    )
+                }
                 Spacer(modifier = Modifier.width(10.dp))
                 Column {
                     Text("Daily Retention Streak: 4 days", color = Color.White, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
