@@ -1,0 +1,67 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #F0F3F6; }
+      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
+      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; }
+    </style>
+  </defs>
+
+  <rect id="bgBase" width="1280" height="800" fill="#181A1F"/>
+
+  <!-- Left Sidebar -->
+  <g id="sidebarContainer">
+    <rect width="260" height="800" fill="#14161A" stroke="#2E333D" stroke-width="1"/>
+    <text x="20" y="44" class="font-title">LectureSync AI</text>
+    <g id="btnNavSettings" transform="translate(12, 282)">
+      <rect width="236" height="40" rx="6" fill="rgba(127, 82, 255, 0.15)"/>
+      <rect width="4" height="40" fill="#7F52FF"/>
+      <text x="18" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#B388FF">Settings &amp; AI Config</text>
+    </g>
+  </g>
+
+  <!-- Top Bar -->
+  <g id="topBar" transform="translate(260, 0)">
+    <rect width="1020" height="64" fill="#181A1F" stroke="#2E333D" stroke-width="1"/>
+    <text x="28" y="37" font-family="sans-serif" font-size="13" fill="#9DA5B4">Settings / <tspan font-weight="bold" fill="#F0F3F6">AI Models, Audio &amp; SQLite Storage</tspan></text>
+  </g>
+
+  <!-- Settings Form Content -->
+  <g id="settingsContent" transform="translate(288, 88)">
+    <rect width="964" height="668" rx="8" fill="#21252B" stroke="#2E333D"/>
+    
+    <text x="32" y="48" font-family="sans-serif" font-size="20" font-weight="bold" fill="#F0F3F6">Application Preferences</text>
+    <text x="32" y="72" class="font-sub">Configure Gemini 2.5 Flash, audio sampling, and offline database synchronization.</text>
+
+    <!-- Section 1: AI Engine -->
+    <g id="grpAiEngine" transform="translate(32, 110)">
+      <text x="0" y="20" class="font-title">AI Engine &amp; API Key</text>
+      
+      <!-- Model Dropdown Simulation -->
+      <g id="cmbModelSelector" transform="translate(0, 36)">
+        <rect width="420" height="42" rx="6" fill="#181A1F" stroke="#2E333D"/>
+        <text x="16" y="26" font-family="sans-serif" font-size="13" fill="#F0F3F6">Gemini 2.5 Flash (Recommended - Lowest Latency)</text>
+      </g>
+
+      <!-- API Key Field -->
+      <g id="txtApiKey" transform="translate(0, 92)">
+        <rect width="420" height="42" rx="6" fill="#181A1F" stroke="#2E333D"/>
+        <text x="16" y="26" font-family="sans-serif" font-size="13" fill="#5C6370">●●●●●●●●●●●●●●●●●●●●●●●● (Stored in .env)</text>
+      </g>
+    </g>
+
+    <!-- Section 2: Storage & Sync -->
+    <g id="grpStorageSync" transform="translate(32, 280)">
+      <text x="0" y="20" class="font-title">Local SQLite Storage &amp; Cache</text>
+      <rect y="36" width="600" height="80" rx="6" fill="#1A1D23" stroke="#2E333D"/>
+      <text x="20" y="68" class="font-sub">Database file: `lecturesync.db` (Schema v1.2)</text>
+      <text x="20" y="94" font-family="sans-serif" font-size="12" fill="#28A745">Status: Healthy (28 lectures, 142 flashcards, 41.5h audio)</text>
+    </g>
+
+    <!-- Save Button -->
+    <g id="btnSavePreferences" transform="translate(32, 420)">
+      <rect width="180" height="44" rx="8" fill="#7F52FF"/>
+      <text x="44" y="27" class="font-btn">Save Changes</text>
+    </g>
+  </g>
+</svg>

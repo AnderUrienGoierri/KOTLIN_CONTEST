@@ -1,0 +1,81 @@
+<svg width="390" height="844" viewBox="0 0 390 844" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 18px; font-weight: bold; fill: #F0F3F6; }
+      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
+      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 14px; font-weight: bold; fill: #FFFFFF; }
+    </style>
+  </defs>
+
+  <!-- Mobile Screen Base -->
+  <rect id="bgMobileBase" width="390" height="844" rx="40" fill="#181A1F" stroke="#2E333D" stroke-width="4"/>
+
+  <!-- Phone Notch / Dynamic Island -->
+  <rect id="mobileNotch" x="135" y="14" width="120" height="28" rx="14" fill="#000000"/>
+
+  <!-- Mobile Top Bar -->
+  <g id="mobileTopBar" transform="translate(24, 60)">
+    <text x="0" y="22" class="font-title">LectureSync Mobile</text>
+    <text x="0" y="40" class="font-sub">Kotlin Multiplatform Client (Android)</text>
+  </g>
+
+  <!-- Central Recording Card -->
+  <g id="cardMobileRecorder" transform="translate(24, 130)">
+    <rect width="342" height="320" rx="20" fill="#21252B" stroke="#2E333D"/>
+    
+    <text x="80" y="44" font-family="sans-serif" font-size="11" font-weight="bold" fill="#E06C75">● LIVE CLASSROOM STREAM</text>
+
+    <!-- Large Recording Timer -->
+    <text x="68" y="130" font-family="sans-serif" font-size="48" font-weight="bold" fill="#F0F3F6">00:34:12</text>
+    
+    <!-- Waveform in Mobile -->
+    <g id="mobileWaveform" transform="translate(50, 160)">
+      <rect x="0" y="10" width="6" height="28" rx="2" fill="#7F52FF"/>
+      <rect x="12" y="2" width="6" height="44" rx="2" fill="#7F52FF"/>
+      <rect x="24" y="16" width="6" height="20" rx="2" fill="#7F52FF"/>
+      <rect x="36" y="0" width="6" height="50" rx="2" fill="#7F52FF"/>
+      <rect x="48" y="14" width="6" height="24" rx="2" fill="#7F52FF"/>
+      <rect x="60" y="4" width="6" height="40" rx="2" fill="#7F52FF"/>
+      <rect x="72" y="18" width="6" height="16" rx="2" fill="#7F52FF"/>
+      <rect x="84" y="6" width="6" height="36" rx="2" fill="#7F52FF"/>
+      <rect x="96" y="12" width="6" height="24" rx="2" fill="#7F52FF"/>
+      <rect x="108" y="0" width="6" height="48" rx="2" fill="#7F52FF"/>
+      <rect x="120" y="14" width="6" height="20" rx="2" fill="#7F52FF"/>
+      <rect x="132" y="4" width="6" height="40" rx="2" fill="#7F52FF"/>
+      <rect x="144" y="16" width="6" height="16" rx="2" fill="#7F52FF"/>
+      <rect x="156" y="2" width="6" height="46" rx="2" fill="#7F52FF"/>
+      <rect x="168" y="10" width="6" height="28" rx="2" fill="#7F52FF"/>
+      <rect x="180" y="20" width="6" height="12" rx="2" fill="#7F52FF"/>
+      <rect x="192" y="4" width="6" height="42" rx="2" fill="#7F52FF"/>
+      <rect x="204" y="14" width="6" height="22" rx="2" fill="#7F52FF"/>
+      <rect x="216" y="8" width="6" height="34" rx="2" fill="#7F52FF"/>
+      <rect x="228" y="18" width="6" height="14" rx="2" fill="#7F52FF"/>
+    </g>
+
+    <!-- Target Sync Info -->
+    <rect x="30" y="250" width="282" height="40" rx="8" fill="#181A1F" stroke="#2E333D"/>
+    <circle cx="48" cy="270" r="4" fill="#28A745"/>
+    <text x="60" y="274" font-family="sans-serif" font-size="11" fill="#9DA5B4">Syncing to Desktop JavaFX (Ktor WS)</text>
+  </g>
+
+  <!-- Whiteboard Photo Capture Card -->
+  <g id="cardWhiteboardCapture" transform="translate(24, 480)">
+    <rect width="342" height="130" rx="16" fill="#21252B" stroke="#2E333D"/>
+    <text x="20" y="32" font-family="sans-serif" font-size="14" font-weight="bold" fill="#F0F3F6">Whiteboard OCR &amp; Photos</text>
+    <text x="20" y="52" class="font-sub">Snap diagrams; Gemini extracts math &amp; code</text>
+    
+    <g id="btnSnapWhiteboard" transform="translate(20, 72)">
+      <rect width="302" height="42" rx="8" fill="#30353E" stroke="#3E4451"/>
+      <text x="80" y="26" class="font-btn">📷 Take Whiteboard Photo</text>
+    </g>
+  </g>
+
+  <!-- Stop and Send Button -->
+  <g id="btnStopAndSend" transform="translate(24, 630)">
+    <rect width="342" height="54" rx="14" fill="#E06C75"/>
+    <text x="95" y="33" font-family="sans-serif" font-size="15" font-weight="bold" fill="#FFF">Stop &amp; Send to AI</text>
+  </g>
+
+  <!-- Bottom Phone Home Indicator -->
+  <rect x="125" y="826" width="140" height="4" rx="2" fill="#FFFFFF"/>
+</svg>
