@@ -92,3 +92,5 @@ ls scene_builder/*.fxml
 - **Author:** Ander Urien (Goierri Eskola)
 - **Target Event:** KotlinConf 2027 (Krakow, Poland - April 22-23, 2027)
 - **Contest Track:** Kotlin Multiplatform + AI Original Application
+- **GitHub Repository:** https://github.com/AnderUrienGoierri/KOTLIN_CONTEST
+- **Official Figma Design (Edu Plan):** https://www.figma.com/design/avrDxgETP3Snx7WyPo3YvC
