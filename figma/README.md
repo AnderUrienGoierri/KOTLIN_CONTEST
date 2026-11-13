@@ -4,13 +4,14 @@ Dokumentu honek Figma-n proiektua nola konfiguratu eta kudeatu azaltzen du, dise
 
 ---
 
-## 1. Konektatutako Proiektua Zure Figma Kontuan
+## 1. Konektatutako Proiektua Zure Figma Kontuan (Educational Plan - 2MG3)
 
-Proiektua zuzenean sortu da zure Figma kontuan:
-- **Fitxategia:** `LectureSync AI - KMP Contest 2027`
-- **Esteka Zuzena:** https://www.figma.com/design/Bq0Trc8YwjlDprTnOjO1mf
-- **File Key:** `Bq0Trc8YwjlDprTnOjO1mf`
+Proiektua zuzenean sortu da zure Figma kontuko **2MG3 (Edu)** taldean sarbide osoarekin:
+- **Fitxategia:** `LectureSync AI - KMP Contest 2027 (Edu)`
+- **Esteka Zuzena:** https://www.figma.com/design/avrDxgETP3Snx7WyPo3YvC
+- **File Key:** `avrDxgETP3Snx7WyPo3YvC`
 - **Jabea:** Ander Urien Telleria (`and_uri_tel@goierrieskola.org`)
+- **SVG Inportazioak:** `figma/svg/` karpetan prest daude 3 pantailen bektoreak geruza-izen semantikoekin (`pantaila_1_dashboard.svg`, `pantaila_2_live_studio.svg`, `pantaila_3_flashcards.svg`). Zuzenean arrastatu ditzakezu Figmara!
 
 ---
 

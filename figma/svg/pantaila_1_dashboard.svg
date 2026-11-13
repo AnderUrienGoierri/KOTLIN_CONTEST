@@ -1,0 +1,154 @@
+<svg width="1280" height="800" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7F52FF"/>
+      <stop offset="100%" stop-color="#E040FB"/>
+    </linearGradient>
+    <style>
+      .font-title { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 15px; font-weight: bold; fill: #F0F3F6; }
+      .font-sub { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 12px; fill: #9DA5B4; }
+      .font-btn { font-family: 'Segoe UI', 'Inter', sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; }
+      .font-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; fill: #61AFEF; }
+    </style>
+  </defs>
+
+  <!-- Background Base -->
+  <rect id="bgBase" width="1280" height="800" fill="#181A1F"/>
+
+  <!-- Left Sidebar -->
+  <g id="sidebarContainer">
+    <rect width="260" height="800" fill="#14161A" stroke="#2E333D" stroke-width="1"/>
+    
+    <!-- Brand Logo and Title -->
+    <g id="brandHeader" transform="translate(20, 24)">
+      <rect width="32" height="32" rx="6" fill="url(#brandGrad)"/>
+      <text x="11" y="22" font-family="sans-serif" font-weight="bold" font-size="16" fill="#FFF">K</text>
+      <text x="44" y="16" class="font-title">LectureSync AI</text>
+      <text x="44" y="30" class="font-sub">KotlinConf '27 Edition</text>
+    </g>
+
+    <!-- Navigation Buttons -->
+    <g id="navGroup" transform="translate(12, 90)">
+      <!-- Active Item: Dashboard -->
+      <g id="btnNavDashboard" transform="translate(0, 0)">
+        <rect width="236" height="40" rx="6" fill="rgba(127, 82, 255, 0.15)"/>
+        <rect width="4" height="40" fill="#7F52FF"/>
+        <text x="18" y="25" font-family="sans-serif" font-size="13" font-weight="bold" fill="#B388FF">Dashboard</text>
+      </g>
+      <!-- Nav Item: Live Lecture -->
+      <g id="btnNavLive" transform="translate(0, 48)">
+        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Live Lecture Studio</text>
+      </g>
+      <!-- Nav Item: Flashcards -->
+      <g id="btnNavFlashcards" transform="translate(0, 96)">
+        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Flashcards &amp; Quizzes</text>
+      </g>
+      <!-- Nav Item: Mind Maps -->
+      <g id="btnNavMindMaps" transform="translate(0, 144)">
+        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Concept Mind Maps</text>
+      </g>
+      <!-- Nav Item: Settings -->
+      <g id="btnNavSettings" transform="translate(0, 192)">
+        <text x="18" y="25" font-family="sans-serif" font-size="13" fill="#9DA5B4">Settings &amp; AI Config</text>
+      </g>
+    </g>
+
+    <!-- Sidebar Footer Sync Status -->
+    <g id="syncStatusBadge" transform="translate(16, 740)">
+      <rect width="228" height="36" rx="6" fill="#21252B" stroke="#2E333D"/>
+      <circle cx="16" cy="18" r="4" fill="#28A745"/>
+      <text x="28" y="22" font-family="sans-serif" font-size="11" fill="#9DA5B4">Android Pixel 8 Synced</text>
+    </g>
+  </g>
+
+  <!-- Top Action Bar -->
+  <g id="topBar" transform="translate(260, 0)">
+    <rect width="1020" height="64" fill="#181A1F" stroke="#2E333D" stroke-width="1"/>
+    <text x="28" y="37" font-family="sans-serif" font-size="13" fill="#9DA5B4">Workspaces / Distributed Systems / <tspan font-weight="bold" fill="#F0F3F6">Dashboard Overview</tspan></text>
+    
+    <!-- Search Input -->
+    <g id="txtSearch" transform="translate(560, 14)">
+      <rect width="260" height="36" rx="6" fill="#21252B" stroke="#2E333D"/>
+      <text x="14" y="22" class="font-sub">Search lectures, flashcards, AI...</text>
+    </g>
+
+    <!-- Primary Action Button -->
+    <g id="btnNewLecture" transform="translate(840, 14)">
+      <rect width="150" height="36" rx="6" fill="#7F52FF"/>
+      <text x="18" y="23" class="font-btn">+ Start Session</text>
+    </g>
+  </g>
+
+  <!-- Main Content Body -->
+  <g id="mainContent" transform="translate(288, 88)">
+    <!-- Metrics Row -->
+    <g id="cardMetrics">
+      <!-- Metric 1 -->
+      <g id="metricTotalLectures" transform="translate(0, 0)">
+        <rect width="220" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
+        <text x="16" y="28" class="font-sub">TOTAL LECTURES</text>
+        <text x="16" y="64" font-family="sans-serif" font-size="28" font-weight="bold" fill="#F0F3F6">28</text>
+        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#28A745">+3 recorded this week</text>
+      </g>
+      <!-- Metric 2 -->
+      <g id="metricFlashcards" transform="translate(244, 0)">
+        <rect width="220" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
+        <text x="16" y="28" class="font-sub">AI FLASHCARDS</text>
+        <text x="16" y="64" font-family="sans-serif" font-size="28" font-weight="bold" fill="#B388FF">142</text>
+        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#9DA5B4">87% mastery rate</text>
+      </g>
+      <!-- Metric 3 -->
+      <g id="metricAudioHours" transform="translate(488, 0)">
+        <rect width="220" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
+        <text x="16" y="28" class="font-sub">AUDIO TRANSCRIBED</text>
+        <text x="16" y="64" font-family="sans-serif" font-size="28" font-weight="bold" fill="#61AFEF">41.5 h</text>
+        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#9DA5B4">WebSocket Ktor Stream</text>
+      </g>
+      <!-- Metric 4 -->
+      <g id="metricAIStatus" transform="translate(732, 0)">
+        <rect width="232" height="100" rx="8" fill="#21252B" stroke="#2E333D"/>
+        <text x="16" y="28" class="font-sub">AI MODEL ENGINE</text>
+        <text x="16" y="60" font-family="sans-serif" font-size="20" font-weight="bold" fill="#28A745">Gemini 2.5</text>
+        <text x="16" y="86" font-family="sans-serif" font-size="11" fill="#9DA5B4">API Status: Connected</text>
+      </g>
+    </g>
+
+    <!-- Table Card Panel -->
+    <g id="tblLectures" transform="translate(0, 128)">
+      <rect width="964" height="540" rx="8" fill="#21252B" stroke="#2E333D"/>
+      <text x="20" y="36" class="font-title">Recent Recorded Lectures</text>
+
+      <!-- Table Header -->
+      <g id="tableHeader" transform="translate(20, 56)">
+        <rect width="924" height="32" fill="#1A1D23" rx="4"/>
+        <text x="16" y="21" class="font-sub">TITLE &amp; TOPIC</text>
+        <text x="320" y="21" class="font-sub">SUBJECT</text>
+        <text x="500" y="21" class="font-sub">DURATION</text>
+        <text x="640" y="21" class="font-sub">AI STATUS</text>
+        <text x="800" y="21" class="font-sub">ACTIONS</text>
+      </g>
+
+      <!-- Row 1 -->
+      <g id="row1" transform="translate(20, 98)">
+        <rect width="924" height="48" fill="#242830" rx="4"/>
+        <text x="16" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#F0F3F6">Kotlin Multiplatform Concurrency</text>
+        <text x="320" y="28" class="font-sub">Distributed Systems</text>
+        <text x="500" y="28" class="font-sub">01:14:20</text>
+        <text x="640" y="28" font-family="sans-serif" font-size="12" fill="#28A745">Ready (14 Cards)</text>
+        <rect x="800" y="10" width="70" height="28" rx="4" fill="#30353E"/>
+        <text x="814" y="28" font-family="sans-serif" font-size="11" fill="#FFF">Review</text>
+      </g>
+
+      <!-- Row 2 -->
+      <g id="row2" transform="translate(20, 154)">
+        <rect width="924" height="48" fill="#21252B" rx="4"/>
+        <text x="16" y="28" font-family="sans-serif" font-size="13" font-weight="bold" fill="#F0F3F6">JavaFX MVC Architecture &amp; FXML</text>
+        <text x="320" y="28" class="font-sub">Desktop Development</text>
+        <text x="500" y="28" class="font-sub">00:54:10</text>
+        <text x="640" y="28" font-family="sans-serif" font-size="12" fill="#28A745">Ready (8 Cards)</text>
+        <rect x="800" y="10" width="70" height="28" rx="4" fill="#30353E"/>
+        <text x="814" y="28" font-family="sans-serif" font-size="11" fill="#FFF">Review</text>
+      </g>
+    </g>
+  </g>
+</svg>

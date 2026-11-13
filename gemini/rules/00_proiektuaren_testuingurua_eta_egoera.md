@@ -8,7 +8,7 @@ Dokumentu honek elkarrizketetan zehar hartutako erabaki, arkitektura, egiaztapen
 - **Proiektua:** `LectureSync AI` (Kotlin Multiplatform Contest 2027)
 - **Lehiaketa:** JetBrains Kotlin Multiplatform Contest 2027 (KotlinConf 2027, Krakovia).
 - **Entregatzeko azken eguna:** 2026ko abenduaren 7a.
-- **Figma Fitxategi Ofiziala:** `https://www.figma.com/design/Bq0Trc8YwjlDprTnOjO1mf` (File Key: `Bq0Trc8YwjlDprTnOjO1mf`).
+- **Figma Fitxategi Ofiziala (Edu):** `https://www.figma.com/design/avrDxgETP3Snx7WyPo3YvC` (File Key: `avrDxgETP3Snx7WyPo3YvC`, Taldea: `2MG3`).
 - **GitHub Konfigurazioa:** `.github/workflows/ci.yml` (KMP Gradle, JavaFX eta Android egiaztapenak).
 
 ---

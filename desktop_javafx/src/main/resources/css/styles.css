@@ -1,0 +1,252 @@
+/* ==========================================================================
+   LectureSync AI - JavaFX Professional Modern Dark Theme (Scene Builder)
+   Inspired by JetBrains IDEs & KotlinConf Modern Aesthetics
+   ========================================================================== */
+
+.root {
+    -fx-font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+    -fx-background-color: #181A1F;
+    -fx-text-base-color: #F0F3F6;
+}
+
+/* Base Color Palette Constants */
+* {
+    -color-bg-base: #181A1F;
+    -color-bg-surface: #21252B;
+    -color-bg-surface-hover: #292D35;
+    -color-bg-sidebar: #14161A;
+    -color-border-subtle: #2E333D;
+    -color-accent-purple: #7F52FF;
+    -color-accent-purple-hover: #683CE0;
+    -color-accent-blue: #3574F0;
+    -color-text-primary: #F0F3F6;
+    -color-text-secondary: #9DA5B4;
+    -color-text-muted: #5C6370;
+    -color-success: #28A745;
+    -color-danger: #E06C75;
+}
+
+/* Sidebar Styling */
+.sidebar-container {
+    -fx-background-color: #14161A;
+    -fx-border-color: transparent #2E333D transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-min-width: 250px;
+    -fx-pref-width: 260px;
+}
+
+.brand-box {
+    -fx-padding: 20px 16px;
+    -fx-border-color: transparent transparent #2E333D transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.brand-icon {
+    -fx-background-color: linear-gradient(to bottom right, #7F52FF, #E040FB);
+    -fx-background-radius: 6px;
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
+    -fx-alignment: center;
+}
+
+.brand-icon-text {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+.brand-title {
+    -fx-text-fill: #F0F3F6;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.brand-subtitle {
+    -fx-text-fill: #5C6370;
+    -fx-font-size: 11px;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #9DA5B4;
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-padding: 10px 16px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #292D35;
+    -fx-text-fill: #F0F3F6;
+}
+
+.nav-button-active {
+    -fx-background-color: rgba(127, 82, 255, 0.15);
+    -fx-text-fill: #B388FF;
+    -fx-font-weight: bold;
+    -fx-border-color: transparent transparent transparent #7F52FF;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0 6px 6px 0;
+}
+
+/* Top App Bar */
+.top-bar {
+    -fx-background-color: #181A1F;
+    -fx-border-color: transparent transparent #2E333D transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12px 24px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.breadcrumb-label {
+    -fx-text-fill: #9DA5B4;
+    -fx-font-size: 13px;
+}
+
+.breadcrumb-active {
+    -fx-text-fill: #F0F3F6;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+/* Primary and Secondary Action Buttons */
+.btn-primary {
+    -fx-background-color: #7F52FF;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 18px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #683CE0;
+}
+
+.btn-secondary {
+    -fx-background-color: #21252B;
+    -fx-text-fill: #F0F3F6;
+    -fx-border-color: #2E333D;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-font-size: 13px;
+    -fx-padding: 7px 16px;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #292D35;
+}
+
+/* Search Box & Inputs */
+.search-field {
+    -fx-background-color: #21252B;
+    -fx-text-fill: #F0F3F6;
+    -fx-prompt-text-fill: #5C6370;
+    -fx-border-color: #2E333D;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 13px;
+}
+
+.search-field:focused {
+    -fx-border-color: #7F52FF;
+}
+
+/* Cards & Containers */
+.card-panel {
+    -fx-background-color: #21252B;
+    -fx-border-color: #2E333D;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 18px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 8, 0, 0, 3);
+}
+
+.card-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F0F3F6;
+}
+
+.card-subtitle {
+    -fx-font-size: 12px;
+    -fx-text-fill: #9DA5B4;
+}
+
+/* Badges */
+.badge-purple {
+    -fx-background-color: rgba(127, 82, 255, 0.18);
+    -fx-text-fill: #B388FF;
+    -fx-border-color: rgba(127, 82, 255, 0.35);
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 3px 8px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.badge-live {
+    -fx-background-color: rgba(224, 108, 117, 0.18);
+    -fx-text-fill: #E06C75;
+    -fx-border-color: rgba(224, 108, 117, 0.35);
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 3px 8px;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+/* Transcript & Code Blocks */
+.transcript-area {
+    -fx-background-color: #1A1D23;
+    -fx-border-color: #2E333D;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 14px;
+    -fx-text-fill: #D1D5DB;
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+/* Flashcard Box */
+.flashcard-box {
+    -fx-background-color: linear-gradient(to bottom, #272B33, #21252B);
+    -fx-border-color: #373C47;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 16px;
+}
+
+.flashcard-question {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F0F3F6;
+}
+
+.flashcard-answer {
+    -fx-font-size: 13px;
+    -fx-text-fill: #9DA5B4;
+    -fx-padding: 8px 0 0 0;
+}
+
+/* Status Bar */
+.status-bar {
+    -fx-background-color: #14161A;
+    -fx-border-color: #2E333D transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 8px 16px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.status-label {
+    -fx-text-fill: #5C6370;
+    -fx-font-size: 11px;
+}

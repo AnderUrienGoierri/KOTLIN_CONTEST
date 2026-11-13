@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.goierri.lecturesync.desktop.controllers.MainController">
+   <left>
+      <VBox prefWidth="260.0" styleClass="sidebar-container" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="brand-box">
+               <children>
+                  <StackPane prefHeight="32.0" prefWidth="32.0" styleClass="brand-icon">
+                     <children>
+                        <Label styleClass="brand-icon-text" text="K" />
+                     </children>
+                  </StackPane>
+                  <VBox alignment="CENTER_LEFT">
+                     <children>
+                        <Label styleClass="brand-title" text="LectureSync AI" />
+                        <Label styleClass="brand-subtitle" text="KotlinConf '27 Edition" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+
+            <VBox spacing="4.0">
+               <VBox.margin>
+                  <Insets left="8.0" right="8.0" top="16.0" />
+               </VBox.margin>
+               <children>
+                  <Button fx:id="btnNavDashboard" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="Dashboard" />
+                  <Button fx:id="btnNavLive" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Live Lecture Studio" />
+                  <Button fx:id="btnNavFlashcards" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Flashcards &amp; Quizzes" />
+                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Concept Mind Maps" />
+                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Audio Archive" />
+                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Settings &amp; AI Config" />
+               </children>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <VBox spacing="10.0">
+               <padding>
+                  <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="8.0" style="-fx-background-color: #21252B; -fx-padding: 8 12; -fx-background-radius: 6; -fx-border-color: #2E333D; -fx-border-radius: 6;">
+                     <children>
+                        <Region prefHeight="8.0" prefWidth="8.0" style="-fx-background-color: #28A745; -fx-background-radius: 4;" />
+                        <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 11px;" text="Android Pixel 8 Synced" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="64.0" spacing="16.0" styleClass="top-bar" BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="breadcrumb-label" text="Workspaces / " />
+            <Label styleClass="breadcrumb-label" text="Algorithms &amp; Systems / " />
+            <Label styleClass="breadcrumb-active" text="Kotlin Multiplatform Concurrency" />
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <TextField fx:id="txtSearch" prefWidth="280.0" promptText="Search lectures, flashcards, AI notes..." styleClass="search-field" />
+            <Button fx:id="btnStartSession" mnemonicParsing="false" styleClass="btn-primary" text="+ Start Live Session" />
+         </children>
+      </HBox>
+   </top>
+
+   <bottom>
+      <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="status-bar" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="statusLabel" styleClass="status-label" text="LectureSync AI v1.0.0 (Kotlin Multiplatform Contest 2027)" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label styleClass="status-label" text="KMP Engine: Ready" />
+            <Label styleClass="status-label" text="Gemini AI: Connected" />
+            <Label styleClass="status-label" text="Local SQLite: OK" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
