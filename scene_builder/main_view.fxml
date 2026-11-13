@@ -11,12 +11,10 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
-   <!-- Left Sidebar -->
+<BorderPane fx:id="rootPane" prefHeight="800.0" prefWidth="1280.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.goierri.lecturesync.desktop.controllers.MainController">
    <left>
       <VBox prefWidth="260.0" styleClass="sidebar-container" BorderPane.alignment="CENTER">
          <children>
-            <!-- Brand / Logo Header -->
             <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="brand-box">
                <children>
                   <StackPane prefHeight="32.0" prefWidth="32.0" styleClass="brand-icon">
@@ -33,24 +31,22 @@
                </children>
             </HBox>
 
-            <!-- Navigation Links -->
             <VBox spacing="4.0">
                <VBox.margin>
                   <Insets left="8.0" right="8.0" top="16.0" />
                </VBox.margin>
                <children>
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="Dashboard" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Live Lecture Studio" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Flashcards &amp; Quizzes" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Concept Mind Maps" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Audio Archive" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Settings &amp; AI Config" />
+                  <Button fx:id="btnNavDashboard" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="Dashboard" />
+                  <Button fx:id="btnNavLive" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Live Lecture Studio" />
+                  <Button fx:id="btnNavFlashcards" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Flashcards &amp; Quizzes" />
+                  <Button fx:id="btnNavMindMaps" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Concept Mind Maps" />
+                  <Button fx:id="btnNavAudioArchive" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Audio Archive" />
+                  <Button fx:id="btnNavSettings" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Settings &amp; AI Config" />
                </children>
             </VBox>
 
             <Region VBox.vgrow="ALWAYS" />
 
-            <!-- Sidebar Footer with Connection Status -->
             <VBox spacing="10.0">
                <padding>
                   <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
@@ -68,7 +64,6 @@
       </VBox>
    </left>
 
-   <!-- Top App Bar -->
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="64.0" spacing="16.0" styleClass="top-bar" BorderPane.alignment="CENTER">
          <children>
@@ -78,124 +73,16 @@
 
             <Region HBox.hgrow="ALWAYS" />
 
-            <TextField prefWidth="280.0" promptText="Search lectures, flashcards, AI notes..." styleClass="search-field" />
-            <Button mnemonicParsing="false" styleClass="btn-primary" text="+ Start Live Session" />
+            <TextField fx:id="txtSearch" prefWidth="280.0" promptText="Search lectures, flashcards, AI notes..." styleClass="search-field" />
+            <Button fx:id="btnStartSession" mnemonicParsing="false" styleClass="btn-primary" text="+ Start Live Session" />
          </children>
       </HBox>
    </top>
 
-   <!-- Center Content View Area -->
-   <center>
-      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: #181A1F; -fx-background-color: transparent;" BorderPane.alignment="CENTER">
-         <content>
-            <VBox spacing="24.0">
-               <padding>
-                  <Insets bottom="24.0" left="28.0" right="28.0" top="24.0" />
-               </padding>
-               <children>
-                  <!-- Dashboard Overview Banner -->
-                  <HBox alignment="CENTER_LEFT" spacing="20.0" styleClass="card-panel">
-                     <children>
-                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label styleClass="card-title" text="Welcome back! You have 3 pending AI lecture reviews." />
-                              <Label styleClass="card-subtitle" text="Gemini Flash 2.5 generated 14 new flashcards and extracted 4 key formulas from yesterday's class." />
-                           </children>
-                        </VBox>
-                        <Button mnemonicParsing="false" styleClass="btn-secondary" text="Review Flashcards" />
-                     </children>
-                  </HBox>
-
-                  <!-- Main Grid: Live Session & Study Tools -->
-                  <HBox spacing="24.0" VBox.vgrow="ALWAYS">
-                     <!-- Left Panel: Live Audio & Transcript -->
-                     <VBox prefWidth="640.0" spacing="16.0" HBox.hgrow="ALWAYS">
-                        <children>
-                           <VBox spacing="14.0" styleClass="card-panel" VBox.vgrow="ALWAYS">
-                              <children>
-                                 <HBox alignment="CENTER_LEFT">
-                                    <children>
-                                       <VBox spacing="2.0">
-                                          <children>
-                                             <Label styleClass="card-title" text="Live Audio Stream &amp; Real-time AI Transcription" />
-                                             <Label styleClass="card-subtitle" text="Input: Mobile High-Fidelity Microphone (48kHz Ktor Stream)" />
-                                          </children>
-                                       </VBox>
-                                       <Region HBox.hgrow="ALWAYS" />
-                                       <Label styleClass="badge-live" text="● REC 00:34:12" />
-                                    </children>
-                                 </HBox>
-
-                                 <!-- Audio Waveform Placeholder -->
-                                 <HBox alignment="CENTER" prefHeight="48.0" spacing="4.0" style="-fx-background-color: #14161A; -fx-background-radius: 6; -fx-padding: 0 12;">
-                                    <children>
-                                       <Region prefHeight="16.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="32.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="20.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="42.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="28.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="38.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="18.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                       <Region prefHeight="46.0" prefWidth="6.0" style="-fx-background-color: #7F52FF; -fx-background-radius: 2;" />
-                                    </children>
-                                 </HBox>
-
-                                 <Label styleClass="transcript-area" text="[10:14 AM] Prof. Martinez: When designing multiplatform applications in Kotlin, common code should reside in the shared module. Platform-specific UI like JavaFX Desktop or Jetpack Compose for Android communicates through expect/actual declarations and reactive StateFlows..." wrapText="true" VBox.vgrow="ALWAYS" />
-                              </children>
-                           </VBox>
-                        </children>
-                     </VBox>
-
-                     <!-- Right Panel: Flashcards & AI Queries -->
-                     <VBox prefWidth="440.0" spacing="16.0">
-                        <children>
-                           <!-- Flashcards Card -->
-                           <VBox spacing="12.0" styleClass="card-panel">
-                              <children>
-                                 <HBox alignment="CENTER_LEFT">
-                                    <children>
-                                       <Label styleClass="card-title" text="AI Generated Flashcards" />
-                                       <Region HBox.hgrow="ALWAYS" />
-                                       <Label styleClass="badge-purple" text="3 New" />
-                                    </children>
-                                 </HBox>
-                                 <VBox spacing="8.0" styleClass="flashcard-box">
-                                    <children>
-                                       <Label styleClass="flashcard-question" text="Q: How do you bind Kotlin StateFlow to JavaFX UI?" wrapText="true" />
-                                       <Label styleClass="flashcard-answer" text="A: By launching a coroutine with Dispatchers.JavaFx to observe state updates on the FX Application Thread." wrapText="true" />
-                                    </children>
-                                 </VBox>
-                              </children>
-                           </VBox>
-
-                           <!-- Ask Gemini Studio -->
-                           <VBox spacing="12.0" styleClass="card-panel">
-                              <children>
-                                 <HBox alignment="CENTER_LEFT">
-                                    <children>
-                                       <Label styleClass="card-title" text="Ask Gemini Copilot" />
-                                       <Region HBox.hgrow="ALWAYS" />
-                                       <Label styleClass="badge-purple" text="Gemini 2.5" />
-                                    </children>
-                                 </HBox>
-                                 <TextField promptText="Ask anything about today's lecture..." styleClass="search-field" />
-                                 <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn-primary" text="Generate Summary &amp; Mind Map" />
-                              </children>
-                           </VBox>
-                        </children>
-                     </VBox>
-                  </HBox>
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
-   </center>
-
-   <!-- Bottom Status Bar -->
    <bottom>
       <HBox alignment="CENTER_LEFT" spacing="16.0" styleClass="status-bar" BorderPane.alignment="CENTER">
          <children>
-            <Label styleClass="status-label" text="LectureSync AI v1.0.0 (Kotlin Multiplatform Contest 2027)" />
+            <Label fx:id="statusLabel" styleClass="status-label" text="LectureSync AI v1.0.0 (Kotlin Multiplatform Contest 2027)" />
             <Region HBox.hgrow="ALWAYS" />
             <Label styleClass="status-label" text="KMP Engine: Ready" />
             <Label styleClass="status-label" text="Gemini AI: Connected" />

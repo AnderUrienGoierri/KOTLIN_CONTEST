@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" style="-fx-background-color: #181A1F; -fx-background: #181A1F;" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.goierri.lecturesync.desktop.controllers.MindMapsController">
+   <content>
+      <VBox spacing="20.0" style="-fx-padding: 24;">
+         <children>
+            <!-- Header bar -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+               <children>
+                  <VBox spacing="4.0">
+                     <children>
+                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #F0F3F6;" text="Concept Mind Maps (AI Hierarchy)" />
+                        <Label style="-fx-font-size: 13px; -fx-text-fill: #9DA5B4;" text="Automatically generated knowledge graphs connecting lectures, definitions, and exam flashcards." />
+                     </children>
+                  </VBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnGenerateMindMap" mnemonicParsing="false" styleClass="btn-primary" text="+ Extract Concepts with Gemini" />
+               </children>
+            </HBox>
+
+            <!-- Graph Canvas and Inspector Container -->
+            <HBox spacing="16.0">
+               <children>
+                  <!-- Graph Visualization Panel -->
+                  <VBox spacing="16.0" style="-fx-background-color: #21252B; -fx-border-color: #2E333D; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 24;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #7F52FF;" text="ACTIVE KNOWLEDGE GRAPH: Kotlin Concurrency &amp; StateFlow" />
+                        
+                        <!-- Root Node -->
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                           <children>
+                              <Button fx:id="btnNodeRoot" mnemonicParsing="false" style="-fx-background-color: #7F52FF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20; -fx-font-size: 14px;" text="Kotlin Coroutines (Root Architecture)" />
+                           </children>
+                        </HBox>
+
+                        <!-- Branch 1: Structured Concurrency -->
+                        <VBox spacing="8.0" style="-fx-padding: 0 0 0 32;">
+                           <children>
+                              <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 12px;" text="├── Concept Branch: Hierarchy &amp; Scopes" />
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnNodeScope" mnemonicParsing="false" style="-fx-background-color: #2B303C; -fx-text-fill: #F0F3F6; -fx-border-color: #3E4451; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8 14;" text="CoroutineScope" />
+                                    <Button fx:id="btnNodeSupervisor" mnemonicParsing="false" style="-fx-background-color: #2B303C; -fx-text-fill: #F0F3F6; -fx-border-color: #3E4451; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8 14;" text="SupervisorJob" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <!-- Branch 2: Asynchronous Streams -->
+                        <VBox spacing="8.0" style="-fx-padding: 0 0 0 32;">
+                           <children>
+                              <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 12px;" text="├── Concept Branch: Reactive Streams" />
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnNodeStateFlow" mnemonicParsing="false" style="-fx-background-color: #1A2838; -fx-text-fill: #38BDF8; -fx-border-color: #38BDF8; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8 14; -fx-font-weight: bold;" text="StateFlow (Hot Stream)" />
+                                    <Button fx:id="btnNodeFlow" mnemonicParsing="false" style="-fx-background-color: #2B303C; -fx-text-fill: #F0F3F6; -fx-border-color: #3E4451; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8 14;" text="Flow (Cold Stream)" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+
+                        <!-- Branch 3: Dispatchers -->
+                        <VBox spacing="8.0" style="-fx-padding: 0 0 0 32;">
+                           <children>
+                              <Label style="-fx-text-fill: #9DA5B4; -fx-font-size: 12px;" text="└── Concept Branch: UI Dispatchers" />
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button fx:id="btnNodeJavaFx" mnemonicParsing="false" style="-fx-background-color: #152B20; -fx-text-fill: #36D399; -fx-border-color: #36D399; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8 14; -fx-font-weight: bold;" text="Dispatchers.JavaFx" />
+                                    <Button fx:id="btnNodeIO" mnemonicParsing="false" style="-fx-background-color: #2B303C; -fx-text-fill: #F0F3F6; -fx-border-color: #3E4451; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 8 14;" text="Dispatchers.IO" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+
+                  <!-- Node Inspector Card -->
+                  <VBox prefWidth="340.0" spacing="14.0" style="-fx-background-color: #21252B; -fx-border-color: #2E333D; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 20;">
+                     <children>
+                        <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #F0F3F6;" text="Concept Details" />
+                        <Label fx:id="lblConceptTitle" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #38BDF8;" text="StateFlow&lt;T&gt;" />
+                        <Label fx:id="lblConceptDescription" style="-fx-font-size: 12px; -fx-text-fill: #9DA5B4;" text="A state-holder observable flow that emits the current and new state updates to its collectors. Ideal for KMP Desktop &amp; Android UIs." wrapText="true" />
+                        
+                        <VBox spacing="6.0" style="-fx-background-color: #181A1F; -fx-padding: 10; -fx-background-radius: 6; -fx-border-color: #2E333D; -fx-border-radius: 6;">
+                           <children>
+                              <Label style="-fx-text-fill: #7F52FF; -fx-font-size: 11px; -fx-font-weight: bold;" text="LINKED FLASHCARDS" />
+                              <Label fx:id="lblLinkedFlashcards" style="-fx-text-fill: #F0F3F6; -fx-font-size: 13px;" text="4 Cards (Due in Leitner Box 2)" />
+                           </children>
+                        </VBox>
+
+                        <Button fx:id="btnStudyLinkedCards" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="btn-primary" text="Study Linked Flashcards" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

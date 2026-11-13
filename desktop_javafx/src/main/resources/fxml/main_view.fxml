@@ -39,9 +39,9 @@
                   <Button fx:id="btnNavDashboard" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button, nav-button-active" text="Dashboard" />
                   <Button fx:id="btnNavLive" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Live Lecture Studio" />
                   <Button fx:id="btnNavFlashcards" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Flashcards &amp; Quizzes" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Concept Mind Maps" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Audio Archive" />
-                  <Button alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Settings &amp; AI Config" />
+                  <Button fx:id="btnNavMindMaps" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Concept Mind Maps" />
+                  <Button fx:id="btnNavAudioArchive" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Audio Archive" />
+                  <Button fx:id="btnNavSettings" alignment="BASELINE_LEFT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="Settings &amp; AI Config" />
                </children>
             </VBox>
 
