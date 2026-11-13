@@ -4,7 +4,17 @@ Dokumentu honek Figma-n proiektua nola konfiguratu eta kudeatu azaltzen du, dise
 
 ---
 
-## 1. Sarbidea eta Galderen Erantzunak
+## 1. Konektatutako Proiektua Zure Figma Kontuan
+
+Proiektua zuzenean sortu da zure Figma kontuan:
+- **Fitxategia:** `LectureSync AI - KMP Contest 2027`
+- **Esteka Zuzena:** https://www.figma.com/design/Bq0Trc8YwjlDprTnOjO1mf
+- **File Key:** `Bq0Trc8YwjlDprTnOjO1mf`
+- **Jabea:** Ander Urien Telleria (`and_uri_tel@goierrieskola.org`)
+
+---
+
+## 2. Sarbidea eta Galderen Erantzunak
 
 ### G: Agenteak ba al du sarbiderik nire Figma unitate pribatura?
 Ez modu automatiko zuzenean, Figma-k autentifikazio pribatua (OAuth tokena edo Personal Access Token) eskatzen baitu hodeiko zure fitxategietara sartzeko. Dena den, bi modu daude konektatzeko:
