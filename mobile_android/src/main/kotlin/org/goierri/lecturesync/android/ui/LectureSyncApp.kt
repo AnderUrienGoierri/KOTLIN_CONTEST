@@ -613,36 +613,40 @@ fun StudyTabScreen(
                 onClick = { onRate("Again") },
                 modifier = Modifier.weight(1f).height(46.dp),
                 shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF3E1C1A))
             ) {
-                Text("Again", color = Color(0xFFF2B8B5), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                Text("Again", color = Color(0xFFF2B8B5), fontSize = 11.sp, fontWeight = FontWeight.Bold, maxLines = 1)
             }
 
             Button(
                 onClick = { onRate("Hard") },
                 modifier = Modifier.weight(1f).height(46.dp),
                 shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2E2310))
             ) {
-                Text("Hard", color = Color(0xFFFFE082), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                Text("Hard", color = Color(0xFFFFE082), fontSize = 11.sp, fontWeight = FontWeight.Bold, maxLines = 1)
             }
 
             Button(
                 onClick = { onRate("Good") },
                 modifier = Modifier.weight(1f).height(46.dp),
                 shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1E283C))
             ) {
-                Text("Good", color = Color(0xFF90CAF9), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                Text("Good", color = Color(0xFF90CAF9), fontSize = 11.sp, fontWeight = FontWeight.Bold, maxLines = 1)
             }
 
             Button(
                 onClick = { onRate("Easy") },
                 modifier = Modifier.weight(1f).height(46.dp),
                 shape = RoundedCornerShape(10.dp),
+                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF142B20))
             ) {
-                Text("Easy", color = Color(0xFFA5D6A7), fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                Text("Easy", color = Color(0xFFA5D6A7), fontSize = 11.sp, fontWeight = FontWeight.Bold, maxLines = 1)
             }
         }
 
