@@ -36,12 +36,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Run Detekt Static Analysis
-        continue-on-error: true
+      - name: Validate Kotlin Compilation
         run: |
           if [ -f "./gradlew" ]; then
             chmod +x ./gradlew
-            ./gradlew detekt --continue
+            ./gradlew :shared:compileKotlinJvm :desktop_javafx:compileKotlin
           else
             echo "Gradle wrapper not yet present. Skipping until project scaffolding is initialized."
           fi
@@ -95,7 +94,7 @@ jobs:
         shell: pwsh
         run: |
           if (Test-Path "./gradlew.bat") {
-            ./gradlew.bat :desktop:assemble
+            ./gradlew.bat :desktop_javafx:assemble
           } else {
             Write-Host "Gradle build script will execute when modules are committed."
           }
